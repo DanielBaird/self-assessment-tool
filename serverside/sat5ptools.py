@@ -96,8 +96,11 @@ def extract_qns_from_sheet(sheet, cfg):
 # -------------------------------------------------------------------
 def qns_to_conversation(qns, default_response="okay"):
 	'''converts an array of questions into an ordered conversation.'''
-	conversation = {}
-	start_id = qns[0][0]
+	conversation = {
+		'start': qns[0][0], # qid of the first question
+		'end': None,		# this gets filled out later
+		'questions': {}		# this gets added to
+	}
 
 	for index, q in enumerate(qns):
 		# is this the last question?
@@ -105,6 +108,9 @@ def qns_to_conversation(qns, default_response="okay"):
 
 		# the question id is the first thing in the qn
 		qid = q[0]
+
+		if last:
+			conversation['end'] = qid
 
 		# the question's text is the second item
 		qtext = q[1]
@@ -137,7 +143,6 @@ def qns_to_conversation(qns, default_response="okay"):
 				if len(ans_text) == 0:
 					ans_text = None
 				ans_next = text_bits[-1].strip()
-				print(q[3][a_index], ans_text, ans_next)
 
 			answers.append({
 				"id": qid + '::' + str(a_index),
@@ -146,11 +151,13 @@ def qns_to_conversation(qns, default_response="okay"):
 				"next": ans_next
 			})
 
-		conversation[qid] = {
+		conversation['questions'][qid] = {
 			"text": qtext,
 			"next": qnext,
 			"answers": answers
 		}
+
+
 
 	return conversation
 
@@ -171,15 +178,15 @@ def save_as_dot(conversation, output_file_path):
 # ===================================================================
 @click.command()
 @click.argument('excelfile', type=click.Path(exists=True, dir_okay=False))
-@click.argument('questionfile', type=click.Path(writable=True, dir_okay=False), default='qns.json')
+@click.argument('questionfile', type=click.Path(writable=True, dir_okay=False), default='conversation.json')
 @click.option('--sheet', default=None, help='name of the worksheet (default: workbook\'s first sheet)')
 @click.option('--config', default='satconfig.cfg', help='config file (default: ./satconfig.cfg)')
 def excel2qns(excelfile, questionfile, sheet, config):
 	'''Generates a question data file from an Excel document.
 
 	You must specify the input -- an Excel workbook file -- on the
-	command line.  The output file defaults to qns.json but may be
-	specified as the second argument.
+	command line.  The output file defaults to conversation.json but 
+	may be specified as the second argument.
 
 	By default the first sheet in your workbook will be read; you
 	can specify a different sheet by name with --sheet.
@@ -196,7 +203,6 @@ def excel2qns(excelfile, questionfile, sheet, config):
 	convo = qns_to_conversation(qns)
 
 	save_as_json(convo, questionfile)
-
 
 # ===================================================================
 

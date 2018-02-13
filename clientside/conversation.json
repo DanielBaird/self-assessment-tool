@@ -1,0 +1,906 @@
+{
+    "start": "lb-intro", 
+    "end": "theend", 
+    "questions": {
+        "p-numeracy": {
+            "text": "Many students are concerned about their maths skills. How prepared do you feel in terms of mathematics and numeracy?", 
+            "answers": [
+                {
+                    "info": "Wonderful these will stand you  in good stead during your studies.", 
+                    "next": "p-writingassessment", 
+                    "id": "p-numeracy::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "These are skills that can be developed. We encourage you to attend an appropriate learning workshop. Details can be found here. It is normal to be anxious about Maths.", 
+                    "next": "p-writingassessment", 
+                    "id": "p-numeracy::1", 
+                    "label": "no"
+                }, 
+                {
+                    "info": "These are skills that can be developed. We encourage you to attend an appropriate learning workshop. Details can be found here. It is normal to be anxious about Maths.", 
+                    "next": "p-writingassessment", 
+                    "id": "p-numeracy::2", 
+                    "label": "not sure"
+                }
+            ], 
+            "next": "p-writingassessment"
+        }, 
+        "p-citations": {
+            "text": "Most of your assessment will need to be referenced in APA or Harvard format. Do you know where to find a guide on how to do that?", 
+            "answers": [
+                {
+                    "info": "Excellent.", 
+                    "next": "p-computerskills", 
+                    "id": "p-citations::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "The library is a fantastic resource for referencing. There is a referencing guide available at \u2026.url", 
+                    "next": "p-computerskills", 
+                    "id": "p-citations::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "p-computerskills"
+        }, 
+        "uhiw-policies1": {
+            "text": "Are you confident that you understand the policies of the uni, e.g. Assessment of Course Work Policy, Withdrawal without Financial Penalty Policy?", 
+            "answers": [
+                {
+                    "info": "Wonderful, it is really important to have good awareness of these.", 
+                    "next": "uhiw-prevstudy1", 
+                    "id": "uhiw-policies1::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "You will find links to some policies in course subject/unit profile/outline please make yourself familiar with them as they could be important.", 
+                    "next": "uhiw-policies2", 
+                    "id": "uhiw-policies1::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "uhiw-policies2"
+        }, 
+        "p-internet": {
+            "text": "Many units require you to download information. Do you have a reliable internet service?", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "p-citations", 
+                    "id": "p-internet::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "This is a really important aspect of your study, you will need to access your learning materials online.", 
+                    "next": "p-citations", 
+                    "id": "p-internet::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "p-citations"
+        }, 
+        "uhiw-policies2": {
+            "text": "Would you like to speak to someone about the university policies or processes?", 
+            "answers": [
+                {
+                    "info": "Send an email to this address, email address here. Don't forget to include your phone number if you want them to call you.", 
+                    "next": "uhiw-prevstudy1", 
+                    "id": "uhiw-policies2::0", 
+                    "label": "yes please"
+                }, 
+                {
+                    "info": null, 
+                    "next": "uhiw-prevstudy1", 
+                    "id": "uhiw-policies2::1", 
+                    "label": "no thanks"
+                }
+            ], 
+            "next": "uhiw-prevstudy1"
+        }, 
+        "p-writingassessment": {
+            "text": "Many of your assessments at university are written; for example essays, reports and discussion papers based on research. Is this an area you are confident with?", 
+            "answers": [
+                {
+                    "info": "That's good to hear, let's move on.", 
+                    "next": "p-alc", 
+                    "id": "p-writingassessment::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "These are skills that can be developed we encourage you to attend an appropriate workshop. Details can be found here. It is normal to be anxious about writing your assessments.", 
+                    "next": "p-alc", 
+                    "id": "p-writingassessment::1", 
+                    "label": "umm.."
+                }
+            ], 
+            "next": "p-alc"
+        }, 
+        "sa-intro": {
+            "text": "Nearly done, this is the last section.", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "sa-career advice", 
+                    "id": "sa-intro::0", 
+                    "label": "okay"
+                }
+            ], 
+            "next": "sa-career advice"
+        }, 
+        "lb-cultural": {
+            "text": "Sometime students tell us they have cultural obligations which impact on their attendance at compulsory classes such as residential schools/on-campus labs and /or availability for compulsory placements.&& Do you think this may be of concern to you at some stage?", 
+            "answers": [
+                {
+                    "info": "You may have a large extended family and be expected to participate in family events. Cultural responsibilities can be time consuming. You should talk about this with your pathways support officer.", 
+                    "next": "p-enrol", 
+                    "id": "lb-cultural::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "p-enrol", 
+                    "id": "lb-cultural::1", 
+                    "label": "no"
+                }, 
+                {
+                    "info": "Planning ahead of time is always the best approach to be sure that possible solutions are explored so that essential course requirements and other responsibilities can be met. You should talk about this with your pathways support officer.", 
+                    "next": "p-enrol", 
+                    "id": "lb-cultural::2", 
+                    "label": "maybe a bit"
+                }
+            ], 
+            "next": "p-enrol"
+        }, 
+        "uhiw-advice": {
+            "text": "Would you like some course advice?", 
+            "answers": [
+                {
+                    "info": "Send an email requesting course advice to this address, email address here. Don't forget to include your phone number if you want them to call you back.", 
+                    "next": "uhiw-monitoring", 
+                    "id": "uhiw-advice::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "uhiw-monitoring", 
+                    "id": "uhiw-advice::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "uhiw-monitoring"
+        }, 
+        "sa-counselling": {
+            "text": "If you need to talk to someone we have counsellors available face to face, by phone, or email. Want to know more?", 
+            "answers": [
+                {
+                    "info": "contact details", 
+                    "next": "theend", 
+                    "id": "sa-counselling::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "theend", 
+                    "id": "sa-counselling::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "theend"
+        }, 
+        "uhiw-prestudy2": {
+            "text": "Are you applying (or would you like to apply) for Recognised Prior Learning for your previous study or work experience?", 
+            "answers": [
+                {
+                    "info": "Check out the course calculator found at url here or speak to the Student Centre.", 
+                    "next": "uhiw-advice", 
+                    "id": "uhiw-prestudy2::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "uhiw-advice", 
+                    "id": "uhiw-prestudy2::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "uhiw-advice"
+        }, 
+        "p-computerskills": {
+            "text": "You will use a range of computer skills at university such as email, creating documents and presentations,searching for information and keeping records of your work. How confident are you with your computer skills?", 
+            "answers": [
+                {
+                    "info": "Great, that will make your life much easier, however, there is support available should you require it. Details here.", 
+                    "next": "p-psiers", 
+                    "id": "p-computerskills::0", 
+                    "label": "Very"
+                }, 
+                {
+                    "info": "If you find that you need to brush up on your skills there is plenty of support, details here.", 
+                    "next": "p-psiers", 
+                    "id": "p-computerskills::1", 
+                    "label": "so so"
+                }, 
+                {
+                    "info": "It is perfectly normal to be concerned about learning new technology for study. There is plenty of support, details here.", 
+                    "next": "p-psiers", 
+                    "id": "p-computerskills::2", 
+                    "label": "not at all"
+                }
+            ], 
+            "next": "p-psiers"
+        }, 
+        "lb-studyarea": {
+            "text": "Do you have a designated study area?", 
+            "answers": [
+                {
+                    "info": "Well done, study requires intense concentration so having a dedicated space to do this is really wonderful. There are also excellent facilities on campus that you are welcome to use. The helpdesk at the library can help you with this.", 
+                    "next": "lb-first", 
+                    "id": "lb-studyarea::0", 
+                    "label": "I do"
+                }, 
+                {
+                    "info": "Study requires intense concentration so having a dedicated space to do this is really important. There are excellent facilities on campus that you are welcome to use. The helpdesk at the library can help you with this.", 
+                    "next": "lb-first", 
+                    "id": "lb-studyarea::1", 
+                    "label": "not yet"
+                }
+            ], 
+            "next": "lb-first"
+        }, 
+        "uhiw-keydates": {
+            "text": "There are a number of dates by which you need to have finalised enrolments, fees etc. They are shown in the Academic Calendar, are you aware of these?", 
+            "answers": [
+                {
+                    "info": "Please be aware of Census date. It is important to finalise your enrolment before census date so as you are not charged fees for subjects you do not wish to be enrolled in. The calendar can be found here (link)", 
+                    "next": "uhiw-policies1", 
+                    "id": "uhiw-keydates::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "Please be aware of Census date. It is important to finalise your enrolment before census date so as you are not charged fees for subjects you do not wish to be enrolled in. The calendar can be found here (link)", 
+                    "next": "uhiw-policies1", 
+                    "id": "uhiw-keydates::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "uhiw-policies1"
+        }, 
+        "lb-travel": {
+            "text": "How far do you live from a campus location while you're studying?", 
+            "answers": [
+                {
+                    "info": "Attendance at class is really important if you are studying internally. We do encourage students studying externally to attend tutes if they live close to their campus.", 
+                    "next": "lb-studyarea", 
+                    "id": "lb-travel::0", 
+                    "label": "Greater than 30 mins"
+                }, 
+                {
+                    "info": "In planning your studies you will need to think about managing your travel so that you can attend important things such as residential placements, practicum and possibly labs.", 
+                    "next": "lb-studyarea", 
+                    "id": "lb-travel::1", 
+                    "label": "less than 30 mins"
+                }
+            ], 
+            "next": "lb-studyarea"
+        }, 
+        "p-unitprofiles": {
+            "text": "Do you know where to find Unit Profiles? These are provided by the lecturer in your subjects to provide you a guide to the subject.", 
+            "answers": [
+                {
+                    "info": "They are really important documents so make sure that you read them carefully.", 
+                    "next": "p-internet", 
+                    "id": "p-unitprofiles::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "These are really important documents and you can find them on your learning management system, name of system and url here.", 
+                    "next": "p-internet", 
+                    "id": "p-unitprofiles::1", 
+                    "label": "no"
+                }, 
+                {
+                    "info": "These are really important documents and you can find them on your learning management system, name of system and url here.", 
+                    "next": "p-internet", 
+                    "id": "p-unitprofiles::2", 
+                    "label": "not sure"
+                }
+            ], 
+            "next": "p-internet"
+        }, 
+        "sa-bluecard": {
+            "text": "Some courses have requirements to get a Blue Card, immunisations, or a police check and these may take time to get. Have you checked your units/subjects for requirments like this?", 
+            "answers": [
+                {
+                    "info": "If you need further assistance other than student portal name please contact your academic liaison. Find out about them here link", 
+                    "next": "sa-indigenous", 
+                    "id": "sa-bluecard::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "If you need further assistance other than student portal name please contact your academic liaison. Find out about them here link", 
+                    "next": "sa-indigenous", 
+                    "id": "sa-bluecard::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-indigenous"
+        }, 
+        "sa-liaison": {
+            "text": "You have support from an Academic Liaison in your school. Want to find out more about this?", 
+            "answers": [
+                {
+                    "info": "You can get wonderful advice on all things course related. Find them here at contact details.", 
+                    "next": "sa-loan", 
+                    "id": "sa-liaison::0", 
+                    "label": "yep"
+                }, 
+                {
+                    "info": null, 
+                    "next": "sa-loan", 
+                    "id": "sa-liaison::1", 
+                    "label": "nah"
+                }
+            ], 
+            "next": "sa-loan"
+        }, 
+        "lb-first": {
+            "text": "Are you the first in your family to go to uni?", 
+            "answers": [
+                {
+                    "info": "Congratulations we really welcome you to University. There are lots of supports available to help you, we will talk more about these later.", 
+                    "next": "lb-home", 
+                    "id": "lb-first::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "You'll be able to talk to your family members about their university journey. Remember, every journey is different so there are lots of supports available on campus as well. We will be talking more about these later.", 
+                    "next": "lb-home", 
+                    "id": "lb-first::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "lb-home"
+        }, 
+        "p-alc": {
+            "text": "Did you know there is an Academic Learning Centre here to help you?", 
+            "answers": [
+                {
+                    "info": "The Academic Learning Centre is a wonderful place that helps you develop your skills as a learner through providing workshops, resources and individual consultations.  Check out their website here.", 
+                    "next": "p-placements1", 
+                    "id": "p-alc::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "The Academic Learning Centre is a wonderful place that helps you develop your skills as a learner through providing workshops, resources and individual consultations.  Check out their website here.", 
+                    "next": "p-placements1", 
+                    "id": "p-alc::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "p-placements1"
+        }, 
+        "sa-forms": {
+            "text": "Have your completed all your forms? HECS, SAF?", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "sa-orientation", 
+                    "id": "sa-forms::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "You will be given reminders however you are able to check in your student portal. Description of how to find it?", 
+                    "next": "sa-orientation", 
+                    "id": "sa-forms::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-orientation"
+        }, 
+        "sa-orientation": {
+            "text": "Have you attended orientation or Orientation Online?", 
+            "answers": [
+                {
+                    "info": "Research shows that students who attend O week are well prepared for their study.", 
+                    "next": "sa-card", 
+                    "id": "sa-orientation::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "O week is fantastic we encourage you to go to as many session as you can, the schedule of events is here. If you aren't able to make it or O week has already come and gone there are some online resources here.", 
+                    "next": "sa-card", 
+                    "id": "sa-orientation::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-card"
+        }, 
+        "p-psiers": {
+            "text": "Have your been contacted by your PSIERS staff member?", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "uhiw-keydates", 
+                    "id": "p-psiers::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "Please let us know and we will ask someone to contact you. Need a link or something for this", 
+                    "next": "uhiw-keydates", 
+                    "id": "p-psiers::1", 
+                    "label": "no"
+                }, 
+                {
+                    "info": "Please let us know and we will ask someone to contact you. Need a link or something for this", 
+                    "next": "uhiw-keydates", 
+                    "id": "p-psiers::2", 
+                    "label": "I don't think so"
+                }
+            ], 
+            "next": "uhiw-keydates"
+        }, 
+        "sa-card": {
+            "text": "Have you applied for your student card? You will need it for exams. You can also get discounts at many businesses and for travel as a student.", 
+            "answers": [
+                {
+                    "info": "Hope you have a great photo.", 
+                    "next": "sa-tutor", 
+                    "id": "sa-card::0", 
+                    "label": "done"
+                }, 
+                {
+                    "info": "The student centre can help you out with this. The form and instructions can be found here.", 
+                    "next": "sa-tutor", 
+                    "id": "sa-card::1", 
+                    "label": "not yet"
+                }
+            ], 
+            "next": "sa-tutor"
+        }, 
+        "sa-studentportal": {
+            "text": "Are you comfortable using the Student Portal, name here?", 
+            "answers": [
+                {
+                    "info": "That's good news, you will be using this constantly throughout your course.", 
+                    "next": "sa-email", 
+                    "id": "sa-studentportal::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "name of portal is an integral part of your study so please log as soon as possible. See here if you are having any trouble with this. You should have been given login instructions however they got instructions.", 
+                    "next": "sa-email", 
+                    "id": "sa-studentportal::1", 
+                    "label": "no"
+                }, 
+                {
+                    "info": null, 
+                    "next": "sa-email", 
+                    "id": "sa-studentportal::2", 
+                    "label": "I can login ..."
+                }
+            ], 
+            "next": "sa-email"
+        }, 
+        "lb-finances": {
+            "text": "Lots of students worry about finances during their studies. Are finances a concern for you?", 
+            "answers": [
+                {
+                    "info": "There are some options like scholarships or student loans or you may be eligible for Centrelink. See contact info here for further information.", 
+                    "next": "lb-cultural", 
+                    "id": "lb-finances::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "lb-cultural", 
+                    "id": "lb-finances::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "lb-cultural"
+        }, 
+        "lb-studyload": {
+            "text": "How many subjects are you enrolled in this semester?", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "lb-travel", 
+                    "id": "lb-studyload::0", 
+                    "label": "1 or 2"
+                }, 
+                {
+                    "info": "3 subjects or more is a full time load. A full-time study load is approximately 10 to 12 hours work per subject, per week. If you are working more than 20 hours per week we recommend a part time study load.", 
+                    "next": "lb-travel", 
+                    "id": "lb-studyload::1", 
+                    "label": "3 or more"
+                }
+            ], 
+            "next": "lb-travel"
+        }, 
+        "p-placements2": {
+            "text": "Do you know where to find out about them?", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "p-placements3", 
+                    "id": "p-placements2::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "Go to your subject page and each unit/subject should have your details listed. If they are not indicated it could mean that they are not part of this unit/subject. You could check this with your unit/subject coordinator.", 
+                    "next": "p-placements3", 
+                    "id": "p-placements2::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "p-placements3"
+        }, 
+        "p-placements3": {
+            "text": "Have you considered that you may need to travel for a residential school or to do a placement/practicum?", 
+            "answers": [
+                {
+                    "info": "Don't forget to budget for travel, accommodation and other expenses. You can talk to your lecturer about this.", 
+                    "next": "p-unitprofiles", 
+                    "id": "p-placements3::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "For many students this requires them to take time off work so start organising this as soon as possible. Don't forget to budget fortravel, accommodation and other expenses.", 
+                    "next": "p-unitprofiles", 
+                    "id": "p-placements3::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "p-unitprofiles"
+        }, 
+        "p-placements1": {
+            "text": "Does your course have Residential Schools, Placements, or Practicums?", 
+            "answers": [
+                {
+                    "info": "These are a wonderful experiences of work integrated learning. Make sure you familiarise yourself with dates of placements so that you can plan ahead.", 
+                    "next": "p-placements2", 
+                    "id": "p-placements1::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "p-unitprofiles", 
+                    "id": "p-placements1::1", 
+                    "label": "no"
+                }, 
+                {
+                    "info": null, 
+                    "next": "p-placements2", 
+                    "id": "p-placements1::2", 
+                    "label": "not sure"
+                }
+            ], 
+            "next": "p-placements2"
+        }, 
+        "p-comms": {
+            "text": "In your studies you will be expected to produce written work and complate oral presentations. How confident do you feel with these?", 
+            "answers": [
+                {
+                    "info": "Brilliant! These skills will be a great help to you in your studies.", 
+                    "next": "p-numeracy", 
+                    "id": "p-comms::0", 
+                    "label": "very"
+                }, 
+                {
+                    "info": "These are skills that can be developed, we encourage you to attend the appropriate learning workshop. Details can be found here.", 
+                    "next": "p-numeracy", 
+                    "id": "p-comms::1", 
+                    "label": "so so"
+                }, 
+                {
+                    "info": "These are skills that can be developed, we encourage you to attend a learning workshop. Details can be found here.", 
+                    "next": "p-numeracy", 
+                    "id": "p-comms::2", 
+                    "label": "not at all"
+                }
+            ], 
+            "next": "p-numeracy"
+        }, 
+        "sa-scholarships": {
+            "text": "Did you know we offer many scholarships?", 
+            "answers": [
+                {
+                    "info": "Great, find out more about them here.", 
+                    "next": "sa-disability", 
+                    "id": "sa-scholarships::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "All the information can be found here.", 
+                    "next": "sa-disability", 
+                    "id": "sa-scholarships::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-disability"
+        }, 
+        "sa-career advice": {
+            "text": "Would you benefit from some career advice?", 
+            "answers": [
+                {
+                    "info": "That is a fantastic step to take, it can be difficult to decide on a career path. Please send us an email to email address here and we will contact you. Don't forget to include your phone number if you want us to call you.", 
+                    "next": "sa-scholarships", 
+                    "id": "sa-career advice::0", 
+                    "label": "yes please"
+                }, 
+                {
+                    "info": null, 
+                    "next": "sa-scholarships", 
+                    "id": "sa-career advice::1", 
+                    "label": "no thanks"
+                }
+            ], 
+            "next": "sa-scholarships"
+        }, 
+        "lb-home": {
+            "text": "Do you have support at home?", 
+            "answers": [
+                {
+                    "info": "Great, take advantage of all the support they can give you. You can find out more at the parents and partners event.", 
+                    "next": "lb-responsibilities", 
+                    "id": "lb-home::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "The University has a fantastic mentoring program, make sure you sign up for that.", 
+                    "next": "lb-responsibilities", 
+                    "id": "lb-home::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "lb-responsibilities"
+        }, 
+        "sa-indigenous": {
+            "text": "We offer support for indigenous students. Want to know more?", 
+            "answers": [
+                {
+                    "info": "link", 
+                    "next": "sa-forms", 
+                    "id": "sa-indigenous::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "sa-forms", 
+                    "id": "sa-indigenous::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-forms"
+        }, 
+        "lb-intro": {
+            "text": "Sometimes students who commence the program tell use they find it difficult to achieve a study/work/family/life balance.&&This may include balancing full time study with full or part-time paid work, as well as with caring responsibilities.&&Is study/life balance a concern for you? Let's work through some examples.", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "lb-studyload", 
+                    "id": "lb-intro::0", 
+                    "label": "okay"
+                }
+            ], 
+            "next": "lb-studyload"
+        }, 
+        "sa-email": {
+            "text": "Do you want to know how to link your student email and personal email?", 
+            "answers": [
+                {
+                    "info": "Follow this link to find the instructions link here or contact one of our IT people here.", 
+                    "next": "sa-liaison", 
+                    "id": "sa-email::0", 
+                    "label": "that would be great"
+                }, 
+                {
+                    "info": null, 
+                    "next": "sa-liaison", 
+                    "id": "sa-email::1", 
+                    "label": "no thanks"
+                }
+            ], 
+            "next": "sa-liaison"
+        }, 
+        "p-requirements": {
+            "text": "Do you understand that your course has Inherent Requirements. Inherent requirements are the fundamental abilities, attributes, skills and behaviours necessary to complete the learning outcomes of a course.", 
+            "answers": [
+                {
+                    "info": "Wonderful. Inherent and Course requirements make clear the expectations and requirements for your future study.", 
+                    "next": "p-comms", 
+                    "id": "p-requirements::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "Inherent and Course requirements are important documents that make clear what is required to be successful in your course and for the work force. These are available at url here. We encourage you to become familiar with these documents.", 
+                    "next": "p-comms", 
+                    "id": "p-requirements::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "p-comms"
+        }, 
+        "sa-textbooks": {
+            "text": "Have you found out what textbooks you need and where to buy them?", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "sa-counselling", 
+                    "id": "sa-textbooks::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "Go and do this now. If you are buying second hand textbooks they are often posted on whereever, however do check that it is the correct edition, or speak to your lecturer in case there is only a small change in the later edition.", 
+                    "next": "sa-counselling", 
+                    "id": "sa-textbooks::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-counselling"
+        }, 
+        "uhiw-monitoring": {
+            "text": "Are you aware that the university monitors your academic progress. This is important because if you do happen to fail 50% of your units or the same unit twice you will be contacted by the university checking to see if everything is okay.", 
+            "answers": [
+                {
+                    "info": "This is a really important policy to be aware of. Find it here.", 
+                    "next": "sa-intro", 
+                    "id": "uhiw-monitoring::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "This is a really important policy to be aware of. Find it here.", 
+                    "next": "sa-intro", 
+                    "id": "uhiw-monitoring::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-intro"
+        }, 
+        "p-enrol": {
+            "text": "Did you enrol on time?", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "p-requirements", 
+                    "id": "p-enrol::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "Do you need some help to catch up? Contact your subject/unit coordinator.", 
+                    "next": "p-requirements", 
+                    "id": "p-enrol::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "p-requirements"
+        }, 
+        "sa-disability": {
+            "text": "Are you aware that disability support is available to you, even if your disability is only for a short while?", 
+            "answers": [
+                {
+                    "info": "This support is available for all forms of disability. Student can access this during times of stress, illness or accident. Find out more about them here.", 
+                    "next": "sa-studentportal", 
+                    "id": "sa-disability::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "This support is available for all forms of disability. Student can access this during times of stress, illness or accident. Find out more about them here.", 
+                    "next": "sa-studentportal", 
+                    "id": "sa-disability::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-studentportal"
+        }, 
+        "uhiw-prevstudy1": {
+            "text": "Have you studied  at university previously?", 
+            "answers": [
+                {
+                    "info": "Things might have changed since you last studied, we recommend that all students take advantage of the full range of support services. To find out more, (link)", 
+                    "next": "uhiw-prestudy2", 
+                    "id": "uhiw-prevstudy1::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "We recommend that all students take advantage of the full range of support services.", 
+                    "next": "uhiw-advice", 
+                    "id": "uhiw-prevstudy1::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "uhiw-prestudy2"
+        }, 
+        "lb-responsibilities": {
+            "text": "Do you have family responsibilities?", 
+            "answers": [
+                {
+                    "info": "If you are worried about your family responsibility impinging on your study you can access student well being staff. Contact details here.", 
+                    "next": "lb-finances", 
+                    "id": "lb-responsibilities::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "lb-finances", 
+                    "id": "lb-responsibilities::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "lb-finances"
+        }, 
+        "theend": {
+            "text": "Thanks, come back anytime! Got any feedback?", 
+            "answers": [
+                {
+                    "info": "Great, we welcome this, please send us an email email link here.", 
+                    "next": null, 
+                    "id": "theend::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": "Bye", 
+                    "next": null, 
+                    "id": "theend::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": null
+        }, 
+        "sa-tutor": {
+            "text": "You can also accessing tutoring online. Want to know more?", 
+            "answers": [
+                {
+                    "info": "You can find all the information you need at link here.", 
+                    "next": "sa-mentor", 
+                    "id": "sa-tutor::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "sa-mentor", 
+                    "id": "sa-tutor::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-mentor"
+        }, 
+        "sa-loan": {
+            "text": "Are you interested in a student loan?", 
+            "answers": [
+                {
+                    "info": null, 
+                    "next": "sa-bluecard", 
+                    "id": "sa-loan::0", 
+                    "label": "yes"
+                }, 
+                {
+                    "info": null, 
+                    "next": "sa-bluecard", 
+                    "id": "sa-loan::1", 
+                    "label": "no"
+                }
+            ], 
+            "next": "sa-bluecard"
+        }, 
+        "sa-mentor": {
+            "text": "Would you like info on the Mentor programme? This is where you are linked up with a fellow student that often has already completed the unit you are studying and are able to provide you with some guidance.", 
+            "answers": [
+                {
+                    "info": "All the information you need can be found here.", 
+                    "next": "sa-textbooks", 
+                    "id": "sa-mentor::0", 
+                    "label": "that would be terrific"
+                }, 
+                {
+                    "info": "Students who connect with peers often perform better than those who don't but there are other ways of connecting such as engaging in tutorials or joining in with other activities around the uni.", 
+                    "next": "sa-textbooks", 
+                    "id": "sa-mentor::1", 
+                    "label": "I'm OK thanks"
+                }
+            ], 
+            "next": "sa-textbooks"
+        }
+    }
+}
