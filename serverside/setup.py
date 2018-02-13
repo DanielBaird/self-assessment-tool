@@ -1,18 +1,19 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
-setup(name='sat5p-tools',
-	description='5P Self Assessment Tool - convert excel to question data file',
+setup(name='sat5ptools',
+	description='5P Self Assessment Tools - commands to work with sat5p',
 	author='Daniel Baird',
 	author_email='daniel@danielbaird.com',
 	version='0.1',
-	py_modules=[],
-	packages=[],
-	scripts=['sat-excel2qns'],
+	py_modules=['sat5ptools'],
 	install_requires=[
+		'Click',
 		'openpyxl'
 	],
-
+	entry_points='''
+		[console_scripts]
+		sat-excel2qns=sat5ptools:excel2qns
+	'''
 )
-
