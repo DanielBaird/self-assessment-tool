@@ -14,6 +14,7 @@ setup(name='sat5ptools',
 	],
 	entry_points='''
 		[console_scripts]
-		sat-excel2qns=sat5ptools:excel2qns
+		excel2qns=sat5ptools:excel2qns
+		excel2graph=sat5ptools:excel2graph
 	'''
 )
