@@ -1,3 +1,10 @@
+
+# ds store, sigh
+.DS_Store
+
+
+### ...default python related stuff below...
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
