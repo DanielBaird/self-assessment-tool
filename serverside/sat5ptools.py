@@ -1,13 +1,15 @@
 
-import sys
-import subprocess
 import json
+import os
+import re
+import subprocess
+import sys
 import textwrap
 
 try:
 	import configparser # python 3.x name
 except ImportError:
-	import ConfigParser as configparser # puython 2.x name
+	import ConfigParser as configparser # python 2.x name
 
 import click
 import openpyxl
@@ -15,9 +17,29 @@ import openpyxl
 
 
 # -------------------------------------------------------------------
-def read_config(config_file_path):
+def get_config(config_file_path=None):
 	cp = configparser.SafeConfigParser()
-	cp.read(config_file_path)
+
+	if config_file_path:
+		cp.read(config_file_path)
+	else:
+		cp.add_section('layout')
+		cp.set('layout', 'HeaderRow', '1')
+		cp.set('layout', 'FirstQuestionRow', '2')
+		cp.add_section('columnNames')
+		cp.set('columnNames', 'QId',      'Question Code')
+		cp.set('columnNames', 'QText',    'Question / Statement')
+		cp.set('columnNames', 'RespList', 'Possible responses')
+		cp.set('columnNames', 'Resp1',    'If they choose Response 1')
+		cp.set('columnNames', 'Resp2',    'If they choose Response 2')
+		cp.set('columnNames', 'Resp3',    'If they choose Response 3')
+		cp.set('columnNames', 'Resp4',    'If they choose Response 4')
+		cp.set('columnNames', 'Resp5',    'If they choose Response 5')
+		cp.set('columnNames', 'Resp6',    'If they choose Response 6')
+		cp.set('columnNames', 'Resp7',    'If they choose Response 7')
+		cp.set('columnNames', 'Resp8',    'If they choose Response 8')
+		cp.set('columnNames', 'Resp9',    'If they choose Response 9')
+
 	return cp
 
 # -------------------------------------------------------------------
@@ -80,6 +102,7 @@ def extract_qns_from_sheet(sheet, cfg):
 
 		resplist = qr[cols['resplist']].value
 		resplist = resplist and resplist.strip() or resplist
+
 		# make a list of the response texts
 		responses = []
 		for r in range(1,10):
@@ -124,12 +147,27 @@ def qns_to_conversation(qns, default_response="okay"):
 			qnext = qns[index + 1][0]
 
 		# if there are responses, they're in q[2]
+		collect = None
 		if q[2]:
-			# If the possible responses includes a semicolon, use that as
-			# the separator. Otherwise use comma
-			split_char = ';' if ';' in q[2] else ','
-			resp_list = [resp.strip() for resp in q[2].split(split_char)]
+			# q[2] could be either a list of responses, or
+			# a text response.
+			textreq = re.search(r'^\s*\{\s*text\s*\}\s*$', q[2], flags=re.IGNORECASE)
+
+			if textreq:
+				# ..it's a request for text input.
+				resp_list = []
+				collect = 'text'
+			else:
+				# q[2] isn't blank, and isn't a text req, so it's a proper
+				# list of responses.
+				#
+				# If the possible responses includes a semicolon, use that as
+				# the separator. Otherwise use comma
+				split_char = ';' if ';' in q[2] else ','
+				resp_list = [resp.strip() for resp in q[2].split(split_char)]
+
 		else:
+			# if q[2] is blank, assume a default response
 			resp_list = [default_response]
 
 		answers = []
@@ -156,6 +194,7 @@ def qns_to_conversation(qns, default_response="okay"):
 		conversation['questions'][qid] = {
 			"text": qtext,
 			"next": qnext,
+			"collect": collect,
 			"answers": answers
 		}
 
@@ -163,6 +202,10 @@ def qns_to_conversation(qns, default_response="okay"):
 
 	return conversation
 
+# -------------------------------------------------------------------
+def esc(str):
+	''' escape a string for use in a graphviz node. '''
+	return (str.replace('{','\{').replace('}','\}'))
 # -------------------------------------------------------------------
 def prep_string(str, width=65):
 	''' prepare a string for use as the label of a graphviz graph node.
@@ -175,7 +218,7 @@ def prep_string(str, width=65):
 	using split, wrap each paragraph as above, then re-join paragraphs 
 	using \\n&&\\n.
 	'''
-	paragraphs = map(lambda p: '\\n'.join(textwrap.wrap(p, width=width)), str.split('&&'))
+	paragraphs = map(lambda p: '\\n'.join(textwrap.wrap(esc(p), width=width)), str.split('&&'))
 	return '\\n&&\\n'.join(paragraphs)
 
 # -------------------------------------------------------------------
@@ -190,12 +233,11 @@ digraph {
 	''')
 
 	# start and end nodes..
-	# dot.append(u'\t"START" [label="START",shape="circle",style="filled",fillcolor="#333333",fontcolor="#ffffff",width="0.75"]')
-	# dot.append(u'\t"END" [label="END",shape="circle",style="filled",fillcolor="#333333",fontcolor="#ffffff",width="0.75"]')
-	dot.append(u'\t"START" [label="START",shape="circle",style="filled,bold",width="0.75"]')
-	dot.append(u'\t"END" [label="END",shape="circle",style="filled,bold",width="0.75"]')
-	# can link the start to the first node (linking end happens for each question)
-	dot.append(u'\t"START" -> "{}"'.format(conversation['start']))
+	dot.append(u'\t"::START::" [label="START",shape="circle",style="filled,bold",width="0.75"]')
+	dot.append(u'\t"::END::" [label="END",shape="circle",style="filled,bold",width="0.75"]')
+
+	# link ::START:: to the first node (linking to ::END:: happens for each question)
+	dot.append(u'\t"::START::" -> "{}"'.format(conversation['start']))
 	dot.append(u'\n')
 
 	for qid, qn in conversation['questions'].items():
@@ -207,22 +249,32 @@ digraph {
 		# the node's answers
 		dot.append(u'\t{ rank=same; ')
 		for ans in qn['answers']:
-			dot.append(u'\t\t"{}" [label="{}", shape="box", style="filled"]'.format(ans['id'], ans['label']))
+			dot.append(u'\t\t"{}" [label="{}", shape="box", style="filled"]'.format(esc(ans['id']), esc(ans['label'])))
 		dot.append(u'\t}')
 
-		# the node's answers' info blocks
+		if qn['collect']:
+			# if it's a collect qn, draw a text-input node
+			if qn['next']:
+				next_node = qn['next']
+			else:
+				next_node = '::END::'
+
+			dot.append(u'\t\t"{}" [label="user enters: {}", shape="parallelogram", style="filled"]'.format(qid + '::collect', '\{' + qid + '\}'))
+			dot.append(u'\t\t"{}" -> "{}" -> "{}"'.format(qid, qid + '::collect', next_node))
+
+		# the node's answers' info blocks (which is a zero-length
+		# list if this is a text input node)
 		for ans in qn['answers']:
 			if ans['info']:
-				dot.append(u'\t"{}" [label="{}", shape="box", style="filled,rounded"]'.format(ans['id'] + '::info', prep_string(ans['info'], 45)))
+				dot.append(u'\t"{}" [label="{}", shape="box", style="filled,rounded"]'.format(esc(ans['id']) + '::info', prep_string(ans['info'], 45)))
 
 		# link the node to its answers and their info blocks
 
 		for ans in qn['answers']:
-
 			if ans['next']:
 				next_node = ans['next']
 			else:
-				next_node = 'END'
+				next_node = '::END::'
 
 			if ans['info']:
 				dot.append(u'\t"{}" -> "{}" -> "{}" -> "{}"'.format(qid, ans['id'], ans['id'] + '::info', next_node))
@@ -249,13 +301,20 @@ def save_as_dot(conversation, output_file_path):
 		out_file.write(conversation_to_dot(conversation).encode('utf8'))
 
 # -------------------------------------------------------------------
+def good(msg):
+	click.echo(click.style(u'\u2714 ', fg='green') + msg)
+
+# -------------------------------------------------------------------
+def bad(msg):
+	click.echo(click.style(u'\u2718 ', fg='red') + msg)
+
 
 # ===================================================================
 @click.command()
 @click.argument('excelfile', type=click.Path(exists=True, dir_okay=False))
 @click.argument('questionfile', type=click.Path(writable=True, dir_okay=False), default='conversation.json')
 @click.option('--sheet', default=None, help='name of the worksheet (default: workbook\'s first sheet)')
-@click.option('--config', default='satconfig.cfg', help='config file (default: ./satconfig.cfg)')
+@click.option('--config', default=None, help='optional config file')
 def excel2qns(excelfile, questionfile, sheet, config):
 	'''Generates a question data file from an Excel document.
 
@@ -266,12 +325,13 @@ def excel2qns(excelfile, questionfile, sheet, config):
 	By default the first sheet in your workbook will be read; you
 	can specify a different sheet by name with --sheet.
 
-	This tool uses a config file to set which row is the "header"
-	row (by default, it's the top row), and what the column names
-	in your worksheet are. The default config is satconfig.cfg,
-	you can use the --config option to use a different config file.
+	This tool uses column titles to identify data, and can use a 
+	config file to change the row and column assumptions made.
+	Use the --config option to specify a config file.
+
+	Run sat5pconfig --help for more infomation on config files.	
 	'''
-	cfg = read_config(config)
+	cfg = get_config(config)
 	xlws = open_excel_sheet(excelfile, sheet)
 
 	qns = extract_qns_from_sheet(xlws, cfg)
@@ -281,13 +341,32 @@ def excel2qns(excelfile, questionfile, sheet, config):
 
 # ===================================================================
 @click.command()
+@click.argument('configfile', type=click.Path(writable=True, dir_okay=False), default='config.cfg')
+def sat5pconfig(configfile):
+	'''Create a config file for use by other sat5ptools commands.
+
+	Provide a configfile path for the new config file. You can then
+	edit the config file, and pass it to other sat5ptools commands
+	using their --config configfile options.
+	'''
+	cfg = get_config()
+	if os.path.exists(configfile):
+		bad('Not writing config to "{}", file already exists.'.format(configfile))
+	else:
+		with open(configfile, 'w') as cf:
+			cfg.write(cf)
+
+		good('Wrote config to file "{}".'.format(configfile))
+
+# ===================================================================
+@click.command()
 @click.argument('excelfile', type=click.Path(exists=True, dir_okay=False))
 @click.argument('dotfile', type=click.Path(writable=True, dir_okay=False), default='conversation.dot')
 @click.option('--sheet', default=None, help='name of the worksheet (default: workbook\'s first sheet)')
 @click.option('--make', is_flag=True, help='run Graphviz to render the graph')
 @click.option('--makeformat', default='png', help='specifies format with rendering with --make')
 @click.option('--gv', default='dot', help='path to Graphviz\'s dot command')
-@click.option('--config', default='satconfig.cfg', help='config file (default: ./satconfig.cfg)')
+@click.option('--config', help='config file (default: ./satconfig.cfg)')
 def excel2graph(excelfile, dotfile, sheet, config, make, makeformat, gv):
 	'''Generates a conversation graph from an Excel document.
 
@@ -319,12 +398,70 @@ def excel2graph(excelfile, dotfile, sheet, config, make, makeformat, gv):
 	in your worksheet are. The default config is satconfig.cfg,
 	you can use the --config option to use a different config file.
 	'''
-	cfg = read_config(config)
+	cfg = get_config(config)
 	xlws = open_excel_sheet(excelfile, sheet)
 
 	qns = extract_qns_from_sheet(xlws, cfg)
 	convo = qns_to_conversation(qns)
 
+	save_as_dot(convo, dotfile)
+
+	if make:
+		# they want us to try running graphviz
+		subprocess.call([gv, '-O', '-T' + makeformat, dotfile])
+
+# ===================================================================
+@click.command()
+@click.argument('excelfile', type=click.Path(exists=True, dir_okay=False))
+@click.argument('outname', default='conversation')
+@click.option('--sheet', default=None, help='name of the worksheet (default: workbook\'s first sheet)')
+@click.option('--make', is_flag=True, help='run Graphviz to render the graph')
+@click.option('--makeformat', default='png', help='specifies format with rendering with --make')
+@click.option('--gv', default='dot', help='path to Graphviz\'s dot command')
+@click.option('--config', help='config file (default: ./satconfig.cfg)')
+def excel2all(excelfile, outname, sheet, config, make, makeformat, gv):
+	'''Given an Excel document, generate both the question file
+	and a graph describing that conversation.
+
+	You must specify the input -- an Excel workbook file -- on the
+	command line.  The output files will both start with OUTNAME;
+	the data file will have a .json extension, and the graph file
+	will have .dot added.  OUTNAME defaults to 'conversation'.
+
+	The graph produced is a Graphviz "dot" file, which is only
+	useful if you have Graphviz (graphviz.org) installed.  You can
+	run Graphviz yourself with a command like this:
+
+	dot -O -Tpng conversation.dot
+
+	..which will create a PNG of your graph, or you can supply the 
+	--make option and this tool will attempt to run Graphviz's dot 
+	command for you. --make will by default try to make a PNG, but
+	you can supply another Graphviz-supported format using
+	--makeformat, e.g --make --makeformat svg
+
+	If the dot command isn't in your path, specify the path to the
+	Graphviz dot executable with the --gv option. E.g. Windows users 
+	might use --gv "c:\Program Files (x86)\Graphviz2.38\bin\dot"
+
+	By default the first sheet in your workbook will be read; you
+	can specify a different sheet by name with --sheet.
+
+	This tool uses a config file to set which row is the "header"
+	row (by default, it's the top row), and what the column names
+	in your worksheet are. The default config is satconfig.cfg,
+	you can use the --config option to use a different config file.
+	'''
+	cfg = get_config(config)
+	xlws = open_excel_sheet(excelfile, sheet)
+
+	qns = extract_qns_from_sheet(xlws, cfg)
+	convo = qns_to_conversation(qns)
+
+	questionfile = outname + '.json'
+	dotfile = outname + '.dot'
+
+	save_as_json(convo, questionfile)
 	save_as_dot(convo, dotfile)
 
 	if make:

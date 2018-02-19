@@ -148,9 +148,9 @@
 			'cf-questions': qn.text
 		}
 
-		if (qn.capture && qn.capture === 'text') {
-			// a capturing question wants to capture some text
-			console.log(id + ' - capture ' + qn.capture)
+		if (qn.collect && qn.collect === 'text') {
+			// a capturing question wants to collect some text
+			console.log(id + ' - collect ' + qn.collect)
 
 			tag['tag'] = 'input'
 			tag['type'] = 'text'
