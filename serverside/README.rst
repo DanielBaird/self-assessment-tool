@@ -66,6 +66,9 @@ more..
 
 **``excel2all``** is a command line tool for producing both a conversation JSON file and a GraphViz graph from an Excel document.
 
+Formatting available in Excel
+-----------------------------
+
 
 
 

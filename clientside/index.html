@@ -51,6 +51,13 @@
 			max-width: 80%;
 		}		
 	}
+	.conversational-form cf-chat-response text a > img {
+		display: block;
+		margin: 0 auto;
+		max-height: 33vh;
+		max-width: 100%;
+		width: auto;
+	}
 	.conversational-form cf-chat-response.robot thumb {
 		zoom: 1.1;
 		background-color: #1a4;
@@ -83,18 +90,20 @@
 </head>
 <body>
 
-<!-- <p><a href="./forumdemo.dot.png">Diagram of this interaction</a></p> -->
+<p><a href="./conversation.dot.png">Diagram of this interaction</a></p>
 
 <div id="formholder" cf-context></div>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@0.9.70/dist/conversational-form.min.js" crossorigin></script>
+<script type="text/javascript" src="https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js" crossorigin></script>
+
 <script type="text/javascript">
 
 	formConfig = {
-		"options": {
+		options: {
 			// eventDispatcher: dispatcher,
-			context: document.getElementById('formholder'),
-			flowStepCallback: answerSubmitted,
+			context: document.getElementById('formholder'), // dom item that will hold the qns
+			flowStepCallback: answerSubmitted, // answer 
 			submitCallback: handleSubmit,
 			hideUserInputOnNoneTextInput: true,
 			userImage: 'ʘ‿ʘ',
@@ -106,19 +115,7 @@
 				}
 			}
 		},
-		"tags": [{
-			"id": "start",
-			"tag": "fieldset",
-			"type": "Radio",
-			"cf-questions": "Ready to test 5P Self Assessment Tool?",
-			"children": [{
-				"tag": "input",
-				"type": "radio",
-				"name": "start",
-				"value": "start",
-				"cf-label": "yes, start test"
-			}]
-		}]
+		tags: []
 	}
 
 
@@ -133,25 +130,65 @@
 	fetch('/conversation.json').then(function(response) {
 		return response.json();
 	}).then(function(theJson) {
-		window.nextQnId = theJson.start
 		window.questions = theJson.questions
+		window.currQnId = theJson.start
+		
+		// add the first question to the form's initial config
+		firstQn = theJson.questions[theJson.start]
+		firstQnTag = makeTagFor(theJson.start, firstQn)
+		formConfig.tags.push(firstQnTag)
+
+		// start the form
 		window.myform = window.cf.ConversationalForm.startTheConversation(formConfig)
 	})
 
+	// ----------------------------------------------------
+	function parseText(text) {
+		// do markdown parsing etc here
+		var html = snarkdown(text)
+
+		// render the html into a dom fragment to do edits on
+		// should use createDocumentFragment() for this, but
+		// it doesn't work in IE < 11
+		var div = document.createElement('div')
+		div.innerHTML = html
+
+		var elemList
+		var elem
+
+		// images should link to themselves
+		var link
+		elemList = div.getElementsByTagName('img')
+		for (var e = 0; e < elemList.length; e++) {
+			elem = elemList[e]
+			link = document.createElement('a')
+			link.setAttribute('href', elem.getAttribute('src'))
+			div.insertBefore(link, elem)
+			link.appendChild(elem)
+		}
+
+		// links should open in new windows
+		elemList = div.getElementsByTagName('a')
+		for (var e = 0; e < elemList.length; e++) {
+			elemList[e].setAttribute('target', '_blank')
+		}
+
+		return div.innerHTML.replace(/&amp;&amp;/g, '&&')
+	}
 
 	// ----------------------------------------------------
 	function makeTagFor(id, qn) {
 
+		var text = parseText(qn.text)
+
 		var tag = {
 			id: id,
 			children: [],
-			'cf-questions': qn.text
+			'cf-questions': text
 		}
 
 		if (qn.collect && qn.collect === 'text') {
 			// a capturing question wants to collect some text
-			console.log(id + ' - collect ' + qn.collect)
-
 			tag['tag'] = 'input'
 			tag['type'] = 'text'
 			tag['cf-label'] = 'asdf'
@@ -159,7 +196,6 @@
 
 		} else {
 			// if it's not a capturing qn, assume it's multichoice
-
 			tag['tag'] = 'fieldset'
 			tag['type'] = 'Radio'
 
@@ -241,16 +277,12 @@
 	// ----------------------------------------------------
 	function answerSubmitted(event, successCallback, errorCallback) {
 
-		console.log('An answer was selected for ' + event.tag.id + ': ' + event.tag.value, event)
-
-
 		var qnId = event.tag.id
 		var ansId = event.tag.value
 
 
 		if (currQnId) {
 			nextQnId = getFollowUp(qnId, ansId)
-			console.log("next up: ", nextQnId)
 		}
 
 		var info = null

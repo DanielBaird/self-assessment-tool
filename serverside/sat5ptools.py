@@ -30,15 +30,15 @@ def get_config(config_file_path=None):
 		cp.set('columnNames', 'QId',      'Question Code')
 		cp.set('columnNames', 'QText',    'Question / Statement')
 		cp.set('columnNames', 'RespList', 'Possible responses')
-		cp.set('columnNames', 'Resp1',    'If they choose Response 1')
-		cp.set('columnNames', 'Resp2',    'If they choose Response 2')
-		cp.set('columnNames', 'Resp3',    'If they choose Response 3')
-		cp.set('columnNames', 'Resp4',    'If they choose Response 4')
-		cp.set('columnNames', 'Resp5',    'If they choose Response 5')
-		cp.set('columnNames', 'Resp6',    'If they choose Response 6')
-		cp.set('columnNames', 'Resp7',    'If they choose Response 7')
-		cp.set('columnNames', 'Resp8',    'If they choose Response 8')
-		cp.set('columnNames', 'Resp9',    'If they choose Response 9')
+		cp.set('columnNames', 'Resp1',    'If they choose response 1')
+		cp.set('columnNames', 'Resp2',    'If they choose response 2')
+		cp.set('columnNames', 'Resp3',    'If they choose response 3')
+		cp.set('columnNames', 'Resp4',    'If they choose response 4')
+		cp.set('columnNames', 'Resp5',    'If they choose response 5')
+		cp.set('columnNames', 'Resp6',    'If they choose response 6')
+		cp.set('columnNames', 'Resp7',    'If they choose response 7')
+		cp.set('columnNames', 'Resp8',    'If they choose response 8')
+		cp.set('columnNames', 'Resp9',    'If they choose response 9')
 
 	return cp
 
@@ -244,7 +244,8 @@ digraph {
 
 		# the node itself
 		# \u2015 is a "horizontal bar" character similar to an em-dash
-		dot.append(u'\t"{}" [label="{{\\N}}|{{\u2015\\n{}\\n\u2015}}",shape="record",style="filled,rounded"]'.format(qid, prep_string(qn['text'])))
+		# \u2500 is a horizontal box-drawing character
+		dot.append(u'\t"{}" [label="{{\\N}}|{{\u2500\u2500\u2500\\n{}\\n\u2500\u2500\u2500\\n}}",shape="record",style="filled,rounded"]'.format(qid, prep_string(qn['text'])))
 
 		# the node's answers
 		dot.append(u'\t{ rank=same; ')
