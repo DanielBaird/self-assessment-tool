@@ -2,6 +2,11 @@
 # ds store, sigh
 .DS_Store
 
+# temp files
+~$*
+
+
+
 
 ### ...default python related stuff below...
 
