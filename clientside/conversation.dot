@@ -1,9 +1,7 @@
-
 digraph {
 	ranksep=0.5
-	bgcolor="#cceeff" # nice background
+	bgcolor="#cceeff"
 	node [style="filled",fillcolor="#ffffff",shape="box",fontname="sans",width="1.2"]
-	
 	"::START::" [label="START",shape="circle",style="filled,bold",width="0.75"]
 	"::END::" [label="END",shape="circle",style="filled,bold",width="0.75"]
 	"::START::" -> "lb-intro"
@@ -298,7 +296,7 @@ digraph {
 	"lb-finances" -> "lb-finances::1" -> "lb-cultural"
 
 
-	"lb-studyload" [label="{\N}|{───\nHi \{lb-intro\}. Our conversation today will look like this:\n![conversation flow diagram](conversation.dot.png)\n&&\nHow many [subjects/courses](https://en.wikipedia.org/wiki/Course_\n(education)) are you enrolled in this semester?\n───\n}",shape="record",style="filled,rounded"]
+	"lb-studyload" [label="{\N}|{───\nHi \{lb-intro\}. Our conversation today will look like this:\n![conversation flow diagram](conversation.dot.png) (It's a very\ntall diagram, click it to see it more clearly.)\n&&\nHow many [subjects/courses](https://en.wikipedia.org/wiki/Course_\n(education)) are you enrolled in this semester?\n───\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"lb-studyload::0" [label="1 or 2", shape="box", style="filled"]
 		"lb-studyload::1" [label="3 or more", shape="box", style="filled"]
@@ -397,7 +395,7 @@ digraph {
 	"sa-indigenous" -> "sa-indigenous::1" -> "sa-forms"
 
 
-	"lb-intro" [label="{\N}|{───\nSometimes students who commence the program tell us they find it\ndifficult to achieve a _study/work/family/life_ balance.\n&&\nThis may include balancing **full-time study** with **full-** or\n**part-time paid work**, as well as with _caring_\nresponsibilities.\n&&\nIs study/life balance a concern for you? Let's work through some\nexamples, but first: what's your name?\n───\n}",shape="record",style="filled,rounded"]
+	"lb-intro" [label="{\N}|{───\nSometimes students who commence the program tell us they find it\ndifficult to achieve a _study/work/family/life_ balance.\n&&\nThis may include balancing **full-time study** with **full-** or\n**part-time paid work**, as well as with _caring_\nresponsibilities.\n&&\nIs [study/life balance](https://onetwentyseven.blog/2017/11/29\n/choose-two/) a concern for you? Let's work through some\nexamples, but first: what's your name?\n───\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 	}
 		"lb-intro::collect" [label="user enters: \{lb-intro\}", shape="parallelogram", style="filled"]

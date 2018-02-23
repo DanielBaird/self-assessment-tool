@@ -527,7 +527,7 @@
             "next": "lb-cultural"
         }, 
         "lb-studyload": {
-            "text": "Hi {lb-intro}. Our conversation today will look like this: ![conversation flow diagram](conversation.dot.png)&&How many [subjects/courses](https://en.wikipedia.org/wiki/Course_(education)) are you enrolled in this semester?", 
+            "text": "Hi {lb-intro}. Our conversation today will look like this: ![conversation flow diagram](conversation.dot.png) (It's a very tall diagram, click it to see it more clearly.)&&How many [subjects/courses](https://en.wikipedia.org/wiki/Course_(education)) are you enrolled in this semester?", 
             "collect": null, 
             "answers": [
                 {
@@ -710,7 +710,7 @@
             "next": "sa-forms"
         }, 
         "lb-intro": {
-            "text": "Sometimes students who commence the program tell us they find it difficult to achieve a _study/work/family/life_ balance.&&This may include balancing **full-time study** with **full-** or **part-time paid work**, as well as with _caring_ responsibilities.&&Is study/life balance a concern for you? Let's work through some examples, but first: what's your name?", 
+            "text": "Sometimes students who commence the program tell us they find it difficult to achieve a _study/work/family/life_ balance.&&This may include balancing **full-time study** with **full-** or **part-time paid work**, as well as with _caring_ responsibilities.&&Is [study/life balance](https://onetwentyseven.blog/2017/11/29/choose-two/) a concern for you? Let's work through some examples, but first: what's your name?", 
             "collect": "text", 
             "answers": [], 
             "next": "lb-studyload"

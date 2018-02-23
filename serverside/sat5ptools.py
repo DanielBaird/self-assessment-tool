@@ -222,15 +222,14 @@ def prep_string(str, width=65):
 	return '\\n&&\\n'.join(paragraphs)
 
 # -------------------------------------------------------------------
-def conversation_to_dot(conversation):
+def conversation_to_dot(conversation, background='transparent'):
 
 	dot = []
-	dot.append('''
-digraph {
-	ranksep=0.5
-	bgcolor="#cceeff" # nice background
-	node [style="filled",fillcolor="#ffffff",shape="box",fontname="sans",width="1.2"]
-	''')
+	dot.append('digraph {')
+	dot.append('\tranksep=0.5')
+	# dot.append('\tbgcolor="#cceeff"')
+	dot.append('\tbgcolor="{}"'.format(background))
+	dot.append('\tnode [style="filled",fillcolor="#ffffff",shape="box",fontname="sans",width="1.2"]')
 
 	# start and end nodes..
 	dot.append(u'\t"::START::" [label="START",shape="circle",style="filled,bold",width="0.75"]')
@@ -295,11 +294,11 @@ def save_as_json(conversation, output_file_path):
 		json.dump(conversation, out_file, indent=4)
 
 # -------------------------------------------------------------------
-def save_as_dot(conversation, output_file_path):
+def save_as_dot(conversation, output_file_path, bg):
 	'''given a set of questions properly linked, draw the 
 	conversational flow as a DOT file'''
 	with open(output_file_path, 'w') as out_file:
-		out_file.write(conversation_to_dot(conversation).encode('utf8'))
+		out_file.write(conversation_to_dot(conversation, bg).encode('utf8'))
 
 # -------------------------------------------------------------------
 def good(msg):
@@ -366,9 +365,10 @@ def sat5pconfig(configfile):
 @click.option('--sheet', default=None, help='name of the worksheet (default: workbook\'s first sheet)')
 @click.option('--make', is_flag=True, help='run Graphviz to render the graph')
 @click.option('--makeformat', default='png', help='specifies format with rendering with --make')
+@click.option('--bg', default='#cceeff', help='background colour (defaults to #cceeff, a light blue)')
 @click.option('--gv', default='dot', help='path to Graphviz\'s dot command')
 @click.option('--config', help='config file (default: ./satconfig.cfg)')
-def excel2graph(excelfile, dotfile, sheet, config, make, makeformat, gv):
+def excel2graph(excelfile, dotfile, sheet, config, make, makeformat, bg, gv):
 	'''Generates a conversation graph from an Excel document.
 
 	You must specify the input -- an Excel workbook file -- on the
@@ -391,6 +391,12 @@ def excel2graph(excelfile, dotfile, sheet, config, make, makeformat, gv):
 	Graphviz dot executable with the --gv option. E.g. Windows users 
 	might use --gv "c:\Program Files (x86)\Graphviz2.38\bin\dot"
 
+	Specify the graph's background with --bg and a CSS-style six 
+	digit hex colour, or the word "transparent" for a transparent 
+	background, e.g. --bg #ff8800 for orange. The Graphviz docs have 
+	additional info at 
+	https://www.graphviz.org/doc/info/attrs.html#d:bgcolor
+
 	By default the first sheet in your workbook will be read; you
 	can specify a different sheet by name with --sheet.
 
@@ -405,7 +411,7 @@ def excel2graph(excelfile, dotfile, sheet, config, make, makeformat, gv):
 	qns = extract_qns_from_sheet(xlws, cfg)
 	convo = qns_to_conversation(qns)
 
-	save_as_dot(convo, dotfile)
+	save_as_dot(convo, dotfile, bg)
 
 	if make:
 		# they want us to try running graphviz
@@ -418,9 +424,10 @@ def excel2graph(excelfile, dotfile, sheet, config, make, makeformat, gv):
 @click.option('--sheet', default=None, help='name of the worksheet (default: workbook\'s first sheet)')
 @click.option('--make', is_flag=True, help='run Graphviz to render the graph')
 @click.option('--makeformat', default='png', help='specifies format with rendering with --make')
+@click.option('--bg', default='#cceeff', help='background colour (defaults to #cceeff, a light blue)')
 @click.option('--gv', default='dot', help='path to Graphviz\'s dot command')
 @click.option('--config', help='config file (default: ./satconfig.cfg)')
-def excel2all(excelfile, outname, sheet, config, make, makeformat, gv):
+def excel2all(excelfile, outname, sheet, config, make, makeformat, bg, gv):
 	'''Given an Excel document, generate both the question file
 	and a graph describing that conversation.
 
@@ -445,6 +452,12 @@ def excel2all(excelfile, outname, sheet, config, make, makeformat, gv):
 	Graphviz dot executable with the --gv option. E.g. Windows users 
 	might use --gv "c:\Program Files (x86)\Graphviz2.38\bin\dot"
 
+	Specify the graph's background with --bg and a CSS-style six 
+	digit hex colour, or the word "transparent" for a transparent 
+	background, e.g. --bg #ff8800 for orange. The Graphviz docs have 
+	additional info at 
+	https://www.graphviz.org/doc/info/attrs.html#d:bgcolor
+
 	By default the first sheet in your workbook will be read; you
 	can specify a different sheet by name with --sheet.
 
@@ -463,7 +476,7 @@ def excel2all(excelfile, outname, sheet, config, make, makeformat, gv):
 	dotfile = outname + '.dot'
 
 	save_as_json(convo, questionfile)
-	save_as_dot(convo, dotfile)
+	save_as_dot(convo, dotfile, bg)
 
 	if make:
 		# they want us to try running graphviz
