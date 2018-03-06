@@ -2,7 +2,7 @@
 Distributing serverside tools
 -----------------------------
 
-Fix the version number in `setup.py`. Then build source and wheel distributions:
+Switch into the `serverside` directory. Fix the version number in `setup.py`. Then build source and wheel distributions:
 
 	python setup.py sdist
 	python setup.py bdist_wheel --universal
