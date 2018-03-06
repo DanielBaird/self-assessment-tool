@@ -23,7 +23,7 @@ setup(name='sat5ptools',
 		'License :: OSI Approved :: Apache Software License'
 	],
 	keywords='chat 5p selfassessment conversation',
-	version='0.2.1',
+	version='0.2.2',
 	py_modules=['sat5ptools'],
 	install_requires=[
 		'Click',

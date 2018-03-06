@@ -205,7 +205,7 @@ def qns_to_conversation(qns, default_response="okay"):
 # -------------------------------------------------------------------
 def esc(str):
 	''' escape a string for use in a graphviz node. '''
-	return (str.replace('{','\{').replace('}','\}'))
+	return (str.replace('{','\{').replace('}','\}').replace('"','\\"'))
 # -------------------------------------------------------------------
 def prep_string(str, width=65):
 	''' prepare a string for use as the label of a graphviz graph node.
