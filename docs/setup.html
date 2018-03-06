@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.4.1/themes/prism.css">
+<style>
+  html {
+    font-family: lato, sans-serif;
+    font-size: 14px;
+    font-size: calc(14px + 0.2vw);
+    line-height: 1.5;
+    background: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 1rem 5rem;
+  }
+
+  h1 {
+    color: #f3f9ff;
+    color; white;
+    background: #357;
+    line-height: 1.1;
+    margin: 6rem 0 1rem;
+    padding: 1em 0;
+    box-shadow: -39.9rem 0 #357, 39.9rem 0 #357;
+  }
+
+  h1:first-of-type {
+    margin-top: 0;
+  }
+
+  h1, h2 {
+    font-weight: 100;
+    letter-spacing: -0.025em;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: #357;
+    margin: 0 0 0 -0.1em;
+    padding: 1.5em 0 0.5rem;
+  }
+
+	h1 { font-size: 2.369rem; opacity: 1.00; font-weight: 400; }
+  /* not using 3.157rem */
+	h2 { font-size: 2.369rem; opacity: 0.85; font-weight: 200; }
+	h3 { font-size: 1.778rem; opacity: 0.90; font-weight: 400; }
+	h4 { font-size: 1.333rem; opacity: 0.95; font-weight: 600; }
+	h5 { font-size: 1.000rem; opacity: 1.00; font-weight: 800; }
+	h6 { font-size: 1.000rem; opacity: 1.00; font-style: italic; }
+
+  h2 { 
+    border-bottom: 1px solid;
+    padding: 3rem 0 0;
+    margin-bottom: 1rem;
+  }
+
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+    border-bottom: 2px dotted;
+    text-decoration: inherit;
+  }
+  h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    border-bottom: 2px solid;
+  }
+
+  p, li {
+    margin: 0;
+    padding: 0.33em 0;
+  }
+
+  li {
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+
+  table, td, th {
+    border-collapse: collapse;
+    padding: 0.2em 0.5em;
+    border: 1px solid silver;
+  }
+
+  code {
+    font-size: smaller;
+  }
+
+  p > code {
+    background: #f3f9ff;
+    padding: 0.3em;
+    border-radius: 0.3em;
+  }
+
+  pre {
+    padding: 0.5em;
+    background: #f3f9ff;
+    border-left: 1px solid #eef0ff;
+    max-width: 100%;
+    overflow-x: auto;
+    /*box-shadow: -50rem 0 #f3f9ff, 50rem 0 #f3f9ff;*/
+  }
+
+  pre.small { font-size: 75%; color: rgba(0,0,0, 0.8) }
+
+  /* override some Prism sourcecode highlight styles */
+  pre[class*="language-"] {
+    line-height: 1.2;
+    overflow-x: auto;
+    background: #f3f9ff;
+  }
+  :not(pre) > code[class*="language-"] {
+    background: #f3f9ff;
+    padding: 0.3em;
+    border-radius: 0.3em;
+  }
+
+  code[class*="language-"] {
+    line-height: 1.2;
+  }
+
+  pre p {
+    padding: 0;
+  }
+
+
+  /* ToC management */
+  #tocHeading { cursor: pointer; }
+  #tocContent { overflow: hidden; font-size: smaller; }
+  .open   #tocHeading:after { content: ' \25be' }
+  .closed #tocHeading:after { content: ' \25b8' }
+  .open   #tocContent { height: auto; }
+  .closed #tocContent { height: 0; }
+
+/* svg diagrams */
+svg {
+  position: relative;
+  z-index: 1;
+  fill: rgba(200,200,200, 0.25);
+  stroke: #999;
+  stroke-width: 0.3;
+}
+#sourcesvg {
+  display: none;
+}
+#diag-bg {
+  fill: rgba(255,255,255, 1);
+  stroke: none;
+}
+svg.diag {
+  transform: rotate(6deg);
+  float: right;
+  width: 111px;
+  height: 144px;
+  margin: 2em 0 0 2em;
+}
+svg use.highlight {
+  fill: #ff9;
+  fill: rgba(255,255,153, 0.9);
+  stroke: #333;
+  stroke-width: 0.6;
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper language-bash">
+<h1 id="sat5p-setup">SAT5P Setup</h1>
+
+<h2 id="nectar-deployment">nectar Deployment</h2>
+
+<h3 id="setup">Setup</h3>
+
+<p>Create instance <code>sat5p-server-1</code> from nectar official <em>NeCTAR CentOS 7 x86_64</em> image, create <code>sat5p-sites</code> volume, and attach volume to instance.</p>
+
+<p>Configure access:</p>
+
+<ul>
+  <li>provide SSH key to Nectar and attach to instance, or another user adds manually</li>
+  <li>Nectar menu <em>Compute</em> &gt; <em>Access &amp; Security</em> &gt; default <em>Manage Rules</em><br />
+** add Ingress rules for HTTP and HTTPS with open CIDR (<code>0.0.0.0/0</code>)<br />
+** add an Ingress rule for SSH and the CIDR spec for your institution:<br />
+<em>** JCU: <code>137.219.0.0/16</code><br />
+**</em> CQU: <code>??</code></li>
+</ul>
+
+<p>Connect via SSH as ec2-user, using something like:</p>
+
+<pre><code>ssh ec2-user@203.101.226.29
+</code></pre>
+
+<p>Partition and format attached volume using <code>fdisk</code> and <code>mkfs.ext4</code>, add to <code>/etc/fstab</code> with something like:</p>
+
+<pre><code>/dev/vdb1	/mnt/sites	ext4	defaults,noatime	0	2 
+</code></pre>
+
+<h4 id="project-init">Project init</h4>
+
+<p>Install git and use it to clone the project’s repository:</p>
+
+<pre><code>sudo yum install -y git
+cd ~
+git clone https://github.com/DanielBaird/self-assessment-tool.git
+</code></pre>
+
+<h4 id="web-serving">Web serving</h4>
+
+<p>Install <code>nginx</code> and set it up to start automatically</p>
+
+<pre><code>yum install -y nginx
+systemctl enable nginx
+</code></pre>
+
+<p>Copy the <code>sat5psites.conf</code> configuration file into <code>nginx</code>’s <code>/etc/nginx/conf.d/</code> dir, and run Nginx’s config tester:</p>
+
+<p>TODO update path to get config from git repo</p>
+
+<pre><code>cp /where/ever/sat5psites.conf /etc/nginx/conf.d/
+nginx -t
+</code></pre>
+
+<p>This config file will try to find a directory in <code>/mnt/sites/</code> for any subdomain, so to create a new subdomain, all that is required is to add a subdirectory into <code>sites</code>, and add the domain to your <a href="https://letsencrypt.org">Let’s Encrypt</a> / <a href="https://certbot.eff.org">certbot</a> certificate.</p>
+
+<p>Create directories for the sites we’re serving, add default content, and give them to the <code>nginx</code> user.</p>
+
+<p>TODO: remember to get a clean “default” set into the repo, and delete <code>now.json</code></p>
+
+<pre><code>cd /mnt/sites
+mkdir jcu jcu-test cqu cqu-test federation federation-test usc usc-test csu csu-test
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/cqu/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/cqu-test/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/jcu/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/jcu-test/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/federation/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/federation-test/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/usc/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/usc-test/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/csu/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/csu-test/
+sudo chown --recursive nginx:nginx /mnt/sites
+</code></pre>
+
+<h4 id="certificates-for-https">Certificates for <code>https</code></h4>
+
+<p>TODO: finish this</p>
+
+<p>Install <code>certbot</code> for Nginx, and run it to generate a certificate</p>
+
+<pre><code>yum install -y certbot-nginx
+systemctl enable nginx
+</code></pre>
+
+<p>Run <code>certbot</code> to get certificates for your sites.</p>
+<pre><code>certbot --nginx --domains jcu.sat5p.jcu.io,jcu-test.sat5p.jcu.io,cqu.sat5p.jcu.io,cqu-test.sat5p.jcu.io
+##
+## enter your email for alerts, agree to Let's Encrypt conditions, etc
+##
+</code></pre>
+
+<h2 id="tools-setup">Tools setup</h2>
+
+<p>The <code>sat5p</code> tools can convert an Excel spreadsheet into a conversation data file, and also into a flow graph that is good for checking through the conversation without tediously clicking all the possible paths in the web chat.</p>
+
+<p>If you’re setting up a server via this guide, you already have the source of the tools in a git repository; however, I recommend installing the “published” version of the tools to minimise messing around with Python.</p>
+
+<p>Make sure you have a recent version of <code>pip</code>, a Python package installer. If you want to use <code>sat5p</code> tools on Windows, it’s worth getting through this, as the tools you’re installing will 🤞 work properly at your command line without you having to type full paths, even if your Python installation doesn’t work that way.</p>
+
+<p>First, check if you already have <code>pip</code>:</p>
+
+<pre><code>pip --version
+</code></pre>
+
+<p>If you get “command not found”, here’s how to install it:</p>
+
+<h5 id="on-centos-and-redhat-with-epel-repository">on CentOS and RedHat with EPEL repository:</h5>
+
+<pre><code>sudo yum install -y python-pip
+sudo pip install --upgrade pip
+</code></pre>
+
+<h5 id="on-ubuntu-debian-etc">on Ubuntu, Debian etc:</h5>
+<pre><code>sudo apt-get install python-pip
+sudo pip install --upgrade pip
+</code></pre>
+
+<h5 id="on-windows-good-luck">on Windows, good luck:</h5>
+<pre><code>start https://stackoverflow.com/questions/4750806/how-do-i-install-pip-on-windows
+</code></pre>
+
+<p>Once you have <code>pip</code>, you can install the tools:</p>
+
+<pre><code>sudo pip install sat5ptools
+</code></pre>
+
+<p>This installs four command line tools, summarised below.  Running <code>&lt;command&gt; --help</code> will produce detailed instructions on options for each command.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>tool</th>
+      <th>purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>sat5pconfig</code></td>
+      <td>Generates a config file with default settings, which you can edit and use to alter the bahaviour of the other tools</td>
+    </tr>
+    <tr>
+      <td><code>excel2qns</code></td>
+      <td>Reads conversation questions from an Excel workbook and generates the JSON file required to deliver that conversation via the web interface</td>
+    </tr>
+    <tr>
+      <td><code>excel2graph</code></td>
+      <td>Reads conversation questions from an Excel workbook and generates a DOT describing a graph of that conversion, and optionally runs GraphViz to produce an actual graph</td>
+    </tr>
+    <tr>
+      <td><code>excel2all</code></td>
+      <td>Combines the behaviour of <code>excel2qns</code> and <code>excel2all</code>, and therefore is probably the command you’ll use most of the time.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Also install <a href="https://www.graphviz.org/">GraphViz</a> so you can get pretty graphs as PNGs or PDFs or whatever:</p>
+
+<pre><code>sudo yum install -y graphviz
+</code></pre>
+
+</div>
+<!-- source highlighting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-bash.min.js"></script>
+</body>
+</html>

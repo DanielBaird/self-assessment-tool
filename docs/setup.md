@@ -1,9 +1,11 @@
+SAT5P Setup
+===========
+
 
 nectar Deployment
-=================
+-----------------
 
-Setup
------
+### Setup
 
 Create instance `sat5p-server-1` from nectar official *NeCTAR CentOS 7 x86_64* image, create `sat5p-sites` volume, and attach volume to instance.
 
@@ -28,7 +30,7 @@ Partition and format attached volume using `fdisk` and `mkfs.ext4`, add to `/etc
 /dev/vdb1	/mnt/sites	ext4	defaults,noatime	0	2 
 ```
 
-### Project init
+#### Project init
 
 Install git and use it to clone the project's repository:
 
@@ -39,7 +41,7 @@ git clone https://github.com/DanielBaird/self-assessment-tool.git
 ```
 
 
-### Web serving
+#### Web serving
 
 Install `nginx` and set it up to start automatically
 
@@ -80,7 +82,7 @@ sudo chown --recursive nginx:nginx /mnt/sites
 ```
 
 
-### Certificates for `https`
+#### Certificates for `https`
 
 TODO: finish this
 
@@ -101,7 +103,7 @@ certbot --nginx --domains jcu.sat5p.jcu.io,jcu-test.sat5p.jcu.io,cqu.sat5p.jcu.i
 
 
 Tools setup
-===========
+-----------
 
 The `sat5p` tools can convert an Excel spreadsheet into a conversation data file, and also into a flow graph that is good for checking through the conversation without tediously clicking all the possible paths in the web chat.
 
@@ -117,16 +119,21 @@ pip --version
 
 If you get "command not found", here's how to install it:
 
+##### on CentOS and RedHat with EPEL repository:
+
 ```
-## on CentOS and RedHat with EPEL repository:
 sudo yum install -y python-pip
 sudo pip install --upgrade pip
+```
 
-## on Ubuntu, Debian etc:
+##### on Ubuntu, Debian etc:
+```
 sudo apt-get install python-pip
 sudo pip install --upgrade pip
+```
 
-## on Windows, good luck:
+##### on Windows, good luck:
+```
 start https://stackoverflow.com/questions/4750806/how-do-i-install-pip-on-windows
 ```
 

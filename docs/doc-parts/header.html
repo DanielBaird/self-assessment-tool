@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.4.1/themes/prism.css">
+<style>
+  html {
+    font-family: lato, sans-serif;
+    font-size: 14px;
+    font-size: calc(14px + 0.2vw);
+    line-height: 1.5;
+    background: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 1rem 5rem;
+  }
+
+  h1 {
+    color: #f3f9ff;
+    color; white;
+    background: #357;
+    line-height: 1.1;
+    margin: 6rem 0 1rem;
+    padding: 1em 0;
+    box-shadow: -39.9rem 0 #357, 39.9rem 0 #357;
+  }
+
+  h1:first-of-type {
+    margin-top: 0;
+  }
+
+  h1, h2 {
+    font-weight: 100;
+    letter-spacing: -0.025em;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: #357;
+    margin: 0 0 0 -0.1em;
+    padding: 1.5em 0 0.5rem;
+  }
+
+	h1 { font-size: 2.369rem; opacity: 1.00; font-weight: 400; }
+  /* not using 3.157rem */
+	h2 { font-size: 2.369rem; opacity: 0.85; font-weight: 200; }
+	h3 { font-size: 1.778rem; opacity: 0.90; font-weight: 400; }
+	h4 { font-size: 1.333rem; opacity: 0.95; font-weight: 600; }
+	h5 { font-size: 1.000rem; opacity: 1.00; font-weight: 800; }
+	h6 { font-size: 1.000rem; opacity: 1.00; font-style: italic; }
+
+  h2 { 
+    border-bottom: 1px solid;
+    padding: 3rem 0 0;
+    margin-bottom: 1rem;
+  }
+
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+    border-bottom: 2px dotted;
+    text-decoration: inherit;
+  }
+  h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    border-bottom: 2px solid;
+  }
+
+  p, li {
+    margin: 0;
+    padding: 0.33em 0;
+  }
+
+  li {
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+
+  table, td, th {
+    border-collapse: collapse;
+    padding: 0.2em 0.5em;
+    border: 1px solid silver;
+  }
+
+  code {
+    font-size: smaller;
+  }
+
+  p > code {
+    background: #f3f9ff;
+    padding: 0.3em;
+    border-radius: 0.3em;
+  }
+
+  pre {
+    padding: 0.5em;
+    background: #f3f9ff;
+    border-left: 1px solid #eef0ff;
+    max-width: 100%;
+    overflow-x: auto;
+    /*box-shadow: -50rem 0 #f3f9ff, 50rem 0 #f3f9ff;*/
+  }
+
+  pre.small { font-size: 75%; color: rgba(0,0,0, 0.8) }
+
+  /* override some Prism sourcecode highlight styles */
+  pre[class*="language-"] {
+    line-height: 1.2;
+    overflow-x: auto;
+    background: #f3f9ff;
+  }
+  :not(pre) > code[class*="language-"] {
+    background: #f3f9ff;
+    padding: 0.3em;
+    border-radius: 0.3em;
+  }
+
+  code[class*="language-"] {
+    line-height: 1.2;
+  }
+
+  pre p {
+    padding: 0;
+  }
+
+
+  /* ToC management */
+  #tocHeading { cursor: pointer; }
+  #tocContent { overflow: hidden; font-size: smaller; }
+  .open   #tocHeading:after { content: ' \25be' }
+  .closed #tocHeading:after { content: ' \25b8' }
+  .open   #tocContent { height: auto; }
+  .closed #tocContent { height: 0; }
+
+/* svg diagrams */
+svg {
+  position: relative;
+  z-index: 1;
+  fill: rgba(200,200,200, 0.25);
+  stroke: #999;
+  stroke-width: 0.3;
+}
+#sourcesvg {
+  display: none;
+}
+#diag-bg {
+  fill: rgba(255,255,255, 1);
+  stroke: none;
+}
+svg.diag {
+  transform: rotate(6deg);
+  float: right;
+  width: 111px;
+  height: 144px;
+  margin: 2em 0 0 2em;
+}
+svg use.highlight {
+  fill: #ff9;
+  fill: rgba(255,255,153, 0.9);
+  stroke: #333;
+  stroke-width: 0.6;
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper language-bash">
