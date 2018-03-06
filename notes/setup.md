@@ -2,8 +2,8 @@
 nectar Deployment
 =================
 
-Initial setup
--------------
+Setup
+-----
 
 Create instance `sat5p-server-1` from nectar official *NeCTAR CentOS 7 x86_64* image, create `sat5p-sites` volume, and attach volume to instance.
 
@@ -65,11 +65,17 @@ TODO: remember to get a clean "default" set into the repo, and delete `now.json`
 
 ```
 cd /mnt/sites
-mkdir jcu jcu-test cqu cqu-test
+mkdir jcu jcu-test cqu cqu-test federation federation-test usc usc-test csu csu-test
 sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/cqu/
 sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/cqu-test/
 sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/jcu/
 sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/jcu-test/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/federation/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/federation-test/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/usc/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/usc-test/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/csu/
+sudo cp -r ~/self-assessment-tool/clientside/* /mnt/sites/csu-test/
 sudo chown --recursive nginx:nginx /mnt/sites
 ```
 
@@ -95,11 +101,11 @@ certbot --nginx --domains jcu.sat5p.jcu.io,jcu-test.sat5p.jcu.io,cqu.sat5p.jcu.i
 
 
 Tools setup
------------
+===========
 
 The `sat5p` tools can convert an Excel spreadsheet into a conversation data file, and also into a flow graph that is good for checking through the conversation without tediously clicking all the possible paths in the web chat.
 
-If you've been following this install guide from the top, you already have the source of the tools in a git repository; however, I recommend installing the "published" version of the tools to minimise messing around with Python.
+If you're setting up a server via this guide, you already have the source of the tools in a git repository; however, I recommend installing the "published" version of the tools to minimise messing around with Python.
 
 Make sure you have a recent version of `pip`, a Python package installer. If you want to use `sat5p` tools on Windows, it's worth getting through this, as the tools you're installing will 🤞 work properly at your command line without you having to type full paths, even if your Python installation doesn't work that way.
 
@@ -134,10 +140,10 @@ This installs four command line tools, summarised below.  Running `<command> --h
 
 | tool           | purpose |
 |----------------|---------|
-| `sat5pconfig`  | Generates a config file with default settings, which you can edit and use to alter the bahaviour of the other tools |
+| `sat5pconfig`  | Generates a config file with default settings, which you can edit and use to alter the bahaviour of the other tools                       |
 | `excel2qns`    | Reads conversation questions from an Excel workbook and generates the JSON file required to deliver that conversation via the web interface |
-| `excel2graph`  | Reads conversation questions from an Excel workbook and generates the DOT file required to create a graph of that conversion, and optionally runs GraphViz to produce a graphic of the graph |
-| `excel2all`    | Combines the behaviour of `excel2qns` and `excel2all`, and therefore is probably the command you'll use most of the time. |
+| `excel2graph`  | Reads conversation questions from an Excel workbook and generates a DOT describing a graph of that conversion, and optionally runs GraphViz to produce an actual graph |
+| `excel2all`    | Combines the behaviour of `excel2qns` and `excel2all`, and therefore is probably the command you'll use most of the time.               |
 
 Also install [GraphViz](https://www.graphviz.org/) so you can get pretty graphs as PNGs or PDFs or whatever:
 
