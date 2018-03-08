@@ -1,4 +1,7 @@
 
+# don't upload the config for Zeit Now
+now.json
+
 # ds store, sigh
 .DS_Store
 
