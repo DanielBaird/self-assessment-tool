@@ -168,19 +168,105 @@ svg use.highlight {
 <body>
 
 <div class="wrapper language-bash">
-<h1 id="self-assessment-tool---5p-project">Self Assessment Tool - 5P project</h1>
 
-<h3 id="for-conversation-authors">For conversation authors</h3>
+<h1 id="system-management">System Management</h1>
 
-<p>Not much for you here yet…</p>
+<h2 id="update-a-conversation">Update a conversation</h2>
 
-<h3 id="for-administrators-and-maintainers">For administrators and maintainers</h3>
+<p>When you receive an updated conversation spreadsheet:</p>
 
-<ul>
-  <li><a href="management.html">Managing</a> spreadsheets and conversations.</li>
-  <li><a href="setup.html">Setup a server</a> and install the tools that process a spreadsheet into a conversation.</li>
-  <li><a href="distributing.html">How to distribute</a> a new version of the SAT5P conversation processing tools.</li>
-</ul>
+<ol>
+  <li>
+    <p>make the next steps easier by renaming / save-as-ing the sheet to a short name with no spaces, e.g. <code>jcu-questions.xlsx</code></p>
+  </li>
+  <li>
+    <p><code>scp</code> the file to the sat5p server, into the default user’s <code>incoming</code> directory:</p>
+  </li>
+</ol>
+
+<pre><code>scp sat5p-comingsoon-1.xlsx ec2-user@203.101.226.29:incoming/ 
+</code></pre>
+
+<ol>
+  <li><code>ssh</code> into the server</li>
+</ol>
+
+<pre><code>ssh ec2-user@203.101.226.29
+</code></pre>
+
+<ol>
+  <li>change into your <code>incoming</code> directory and check that your spreadsheet is there</li>
+</ol>
+
+<pre><code>cd ~/incoming
+ls *.xlsx
+</code></pre>
+
+<ol>
+  <li>run <code>excel2all</code> (from the <code>sat5ptools</code> package, check the <a href="setup.html">setup guide</a> for installation instructions) to create the conversation data file and graph.  Specify the correct target institution’s site directory for output; you will generally want to send incoming updates into the <code>-test</code> dir.</li>
+</ol>
+
+<p>The default <code>ec2-user</code> user doesn’t have permission to write to <code>/mnt/sites</code>, so use <code>sudo</code> to write there, and then reset ownership of <code>sites</code> contents back to <code>nginx</code>.</p>
+
+<pre><code>sudo excel2all ~/incoming/jcu-questions.xslx --make --makeformat pdf /mnt/sites/jcu-test/conversation
+sudo chown --recursive nginx:nginx /mnt/sites
+</code></pre>
+
+<ol>
+  <li>Confirm that the site you’ve just updated is working: jcu-test.sat5p.jcu.io</li>
+</ol>
+
+<h2 id="update-header-footer-or-icons">Update header, footer, or icons</h2>
+
+<p>Each site is constructed from a set of files in its <code>/mnt/sites/</code> directory.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>filename</th>
+      <th>purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>index.html</code></td>
+      <td>The core functionality of the Self Assessment Tool</td>
+    </tr>
+    <tr>
+      <td><code>header.html</code></td>
+      <td>A header, loaded and added to the top of the page by <code>index.html</code> (unless disabled by adding <code>?noheader</code> to the URL). The institution may supply alternative header content.</td>
+    </tr>
+    <tr>
+      <td><code>footer.html</code></td>
+      <td>A footer, loaded and added to the bottom of the page by <code>index.html</code> (unless disabled by adding the slightly incorrectly named <code>?noheader</code> option to the URL). The institution may supply alternative header content.</td>
+    </tr>
+    <tr>
+      <td><code>conversation.json</code></td>
+      <td>The data file containing the conversation.</td>
+    </tr>
+    <tr>
+      <td><code>conversation.dot</code></td>
+      <td>A graph specification describing the conversational flow.</td>
+    </tr>
+    <tr>
+      <td><code>conversation.dot.pdf</code></td>
+      <td>A PDF of the conversational graph, rendered as a PDF.</td>
+    </tr>
+    <tr>
+      <td><code>logo.png</code></td>
+      <td>The institution’s logo, included in the default <code>header.html</code>.</td>
+    </tr>
+    <tr>
+      <td><code>uni.png</code></td>
+      <td>The avatar used for the institution during the conversation.</td>
+    </tr>
+    <tr>
+      <td><code>user.png</code></td>
+      <td>The avatar used for the user during the conversation.</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 <!-- table of contents -->

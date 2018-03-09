@@ -62,11 +62,10 @@
 
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
-    border-bottom: 2px dotted;
     text-decoration: inherit;
   }
   h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-    border-bottom: 2px solid;
+    border-bottom: 2px dotted;
   }
 
   p, li {
@@ -134,6 +133,7 @@
   .closed #tocHeading:after { content: ' \25b8' }
   .open   #tocContent { height: auto; }
   .closed #tocContent { height: 0; }
+  xa[href^="#"] { text-decoration: none; }
 
 /* svg diagrams */
 svg {
@@ -169,9 +169,9 @@ svg use.highlight {
 
 <div class="wrapper language-bash">
 
-<h2 id="distributing-serverside-tools">Distributing serverside tools</h2>
+<h1 id="distributing-sat5p-tools">Distributing SAT5P tools</h1>
 
-<p>Switch into the <code>serverside</code> directory. Fix the version number in <code>setup.py</code>. Then build source and wheel distributions:</p>
+<p>Switch into the <code>tools</code> directory. <strong>Update the version number in <code>setup.py</code>.</strong> Make sure you’re in the <code>venv</code> virtual environment (<code>. venv/bin/activate</code>). Then build source and wheel distributions:</p>
 
 <pre><code>python setup.py sdist
 python setup.py bdist_wheel --universal
@@ -182,13 +182,41 @@ python setup.py bdist_wheel --universal
 <pre><code>twine upload dist/*
 </code></pre>
 
-<p>Then make sure you’ve committed everything into git, then tag. Remember to use a tag version number that matches <code>setup.py</code>.</p>
+<p>Then make sure you’ve committed everything into git, then tag. Remember to use a tag version number that matches the version in <code>setup.py</code>.</p>
 
-<pre><code>git tag -a "v0.1.0" -m "some description of this release tag"
+<pre><code>git tag -a "v1.2.3" -m "some description of this release tag"
 git push --tags
 </code></pre>
-
 </div>
+
+<!-- table of contents -->
+<script src="https://rawgit.com/gajus/contents/master/dist/browser/contents.js"></script>
+<script>
+  // make a ToC with all the headings
+  var c = gajus.Contents({
+    articles: document.querySelectorAll('h2, h3, h4, h5, h6')
+  });
+
+  // put the ToC into a open-close container
+  var toc = document.createElement('div')
+  toc.className = 'closed'
+  toc.innerHTML = '<h3 id="tocHeading" title="click to show/hide">Contents</h3><div id="tocContent"></div>'
+
+  // find the first h2 and put the ToC right before it
+  var firstHeading2 = document.querySelector('h2')
+  firstHeading2.parentNode.insertBefore(toc, firstHeading2)
+  document.getElementById('tocContent').insertBefore(c.list(), null)
+
+  // rig the heading to show/hide the ToC by switching classes
+  document.getElementById('tocHeading').addEventListener("click", function() {
+    if (toc.className === 'closed') {
+      toc.className = 'open'
+    } else {
+      toc.className = 'closed'
+    }
+  })
+</script>
+
 <!-- source highlighting -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-bash.min.js"></script>
