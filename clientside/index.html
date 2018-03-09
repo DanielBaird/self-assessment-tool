@@ -13,12 +13,12 @@
 	}
 	html {
 		font-family: sans-serif;
-		background-color: #eee;
+		background-color: #369;
 		padding: 0;
 		margin: 0;
 		min-height: 100vh;
 	}
-	/* use table layout for positioning, because IE */
+	/* use absolute layout + JS for positioning, because IE */
 	body {
 		height: 100%;
 		height: 100vh;
@@ -38,10 +38,9 @@
 		bottom: 0;
 	}
 	#header, #formholder, #footer {
-		max-width: 40rem;
+		/* max-width: 40rem; */ /* this gets set dynamically */
 		margin: 0 auto;
 	}
-
 	body, p {
 		text-align: center;
 		padding: 0;
@@ -110,6 +109,10 @@
 <script type="text/javascript">
 	// ----------------------------------------------------
 	if (document.location.href.indexOf('noheader') < 0) {
+		// if they didn't specify noheader on the URL,
+		// we get the header and footer, and set a
+		// maximum width.
+
 		// get the header
 		var headerreq = new XMLHttpRequest()
 		headerreq.open('GET', 'header.html', true)
@@ -118,6 +121,7 @@
 				if (this.status >= 200 && this.status < 400) {
 					var resp = this.responseText	      
 					document.getElementById('header').innerHTML = resp
+					setTimeout(resizeWindow, 100)
 				} else {
 					// error: so don't replace the header
 				}
@@ -132,8 +136,9 @@
 		footerreq.onreadystatechange = function() {
 			if (this.readyState === 4) {
 				if (this.status >= 200 && this.status < 400) {
-					var resp = this.responseText	      
+					var resp = this.responseText
 					document.getElementById('footer').innerHTML = resp
+					setTimeout(resizeWindow, 100)
 				} else {
 					// error: so don't replace the footer
 				}
@@ -141,6 +146,14 @@
 		}
 		footerreq.send()
 		footerreq = null
+
+		// when there's no header, we assume we're iframe'd
+		// nicely; if we have a header, assume we need to be
+		// in charge of our own width.
+		document.getElementById('header'    ).style.maxWidth = '40em'
+		document.getElementById('formholder').style.maxWidth = '40em'
+		document.getElementById('footer'    ).style.maxWidth = '40em'
+
 	}
 	// ----------------------------------------------------
 	var formConfig = {
@@ -169,21 +182,35 @@
 	window.onresize = resizeWindow
 	setTimeout(resizeWindow, 100)
 	// ----------------------------------------------------
-	// TODO replace fetch with shitty IE stuff
-	fetch('/conversation.json').then(function(response) {
-		return response.json();
-	}).then(function(theJson) {
-		window.questions = theJson.questions
-		window.currQnId = theJson.start
-		
-		// add the first question to the form's initial config
-		firstQn = theJson.questions[theJson.start]
-		firstQnTag = makeTagFor(theJson.start, firstQn)
-		formConfig.tags.push(firstQnTag)
+	// should be a fetch() but IE sigh..
+	var datareq = new XMLHttpRequest()
+	datareq.open('GET', 'conversation.json', true)
+	datareq.onreadystatechange = function() {
+		if (this.readyState === 4) {
+			if (this.status >= 200 && this.status < 400) {
 
-		// start the form
-		window.myform = window.cf.ConversationalForm.startTheConversation(formConfig)
-	})
+				var theJson = JSON.parse(this.responseText)
+
+				window.questions = theJson.questions
+				window.currQnId = theJson.start
+				
+				// add the first question to the form's initial config
+				firstQn = theJson.questions[theJson.start]
+				firstQnTag = makeTagFor(theJson.start, firstQn)
+				formConfig.tags.push(firstQnTag)
+
+				// start the form
+				window.myform = window.cf.ConversationalForm.startTheConversation(formConfig)
+
+				setTimeout(resizeWindow, 100)
+
+			} else {
+				// error: didn't get data
+			}
+		}
+	}
+	datareq.send()
+	datareq = null
 	// ----------------------------------------------------
 	function resizeWindow() {
 		console.log('resizing window')
