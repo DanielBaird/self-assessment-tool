@@ -1,0 +1,533 @@
+digraph {
+	ranksep=0.5
+	bgcolor="#cceeff"
+	node [style="filled",fillcolor="#ffffff",shape="box",fontname="sans",width="1.2"]
+	"::START::" [label="START",shape="circle",style="filled,bold",width="0.75"]
+	"::END::" [label="END",shape="circle",style="filled,bold",width="0.75"]
+	"::START::" -> "lb-intro"
+
+
+	"p-numeracy" [label="{\N}|{―――\nMany students are concerned about their maths skills. How\nprepared do you feel in terms of mathematics and numeracy?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-numeracy::0" [label="yes", shape="box", style="filled"]
+		"p-numeracy::1" [label="no", shape="box", style="filled"]
+		"p-numeracy::2" [label="not sure", shape="box", style="filled"]
+	}
+	"p-numeracy::0::info" [label="Wonderful these will stand you  in good stead\nduring your studies.", shape="box", style="filled,rounded"]
+	"p-numeracy::1::info" [label="These are skills that can be developed. We\nencourage you to attend an appropriate\nlearning workshop. Details can be found here.\nIt is normal to be anxious about Maths.", shape="box", style="filled,rounded"]
+	"p-numeracy::2::info" [label="These are skills that can be developed. We\nencourage you to attend an appropriate\nlearning workshop. Details can be found here.\nIt is normal to be anxious about Maths.", shape="box", style="filled,rounded"]
+	"p-numeracy" -> "p-numeracy::0" -> "p-numeracy::0::info" -> "p-writingassessment"
+	"p-numeracy" -> "p-numeracy::1" -> "p-numeracy::1::info" -> "p-writingassessment"
+	"p-numeracy" -> "p-numeracy::2" -> "p-numeracy::2::info" -> "p-writingassessment"
+
+
+	"p-citations" [label="{\N}|{―――\nMost of your assessment will need to be referenced in APA or\nHarvard format. Do you know where to find a guide on how to do\nthat?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-citations::0" [label="yes", shape="box", style="filled"]
+		"p-citations::1" [label="no", shape="box", style="filled"]
+	}
+	"p-citations::0::info" [label="Excellent.", shape="box", style="filled,rounded"]
+	"p-citations::1::info" [label="The library is a fantastic resource for\nreferencing. There is a referencing guide\navailable at url.", shape="box", style="filled,rounded"]
+	"p-citations" -> "p-citations::0" -> "p-citations::0::info" -> "p-alc"
+	"p-citations" -> "p-citations::1" -> "p-citations::1::info" -> "p-alc"
+
+
+	"uhiw-policies1" [label="{\N}|{―――\nAre you confident that you understand the policies of the uni,\ne.g. Assessment of Course Work Policy, Withdrawal without\nFinancial Penalty Policy?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"uhiw-policies1::0" [label="yes", shape="box", style="filled"]
+		"uhiw-policies1::1" [label="no", shape="box", style="filled"]
+	}
+	"uhiw-policies1::0::info" [label="Wonderful, it is really important to have\ngood awareness of these.", shape="box", style="filled,rounded"]
+	"uhiw-policies1::1::info" [label="You will find links to some policies in\ncourse subject/unit profile/outline please\nmake yourself familiar with them as they\ncould be important.", shape="box", style="filled,rounded"]
+	"uhiw-policies1" -> "uhiw-policies1::0" -> "uhiw-policies1::0::info" -> "uhiw-prevstudy1"
+	"uhiw-policies1" -> "uhiw-policies1::1" -> "uhiw-policies1::1::info" -> "uhiw-policies2"
+
+
+	"p-internet" [label="{\N}|{―――\nMany units require you to download information. Do you have a\nreliable internet service?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-internet::0" [label="yes", shape="box", style="filled"]
+		"p-internet::1" [label="no", shape="box", style="filled"]
+	}
+	"p-internet::1::info" [label="This is a really important aspect of your\nstudy, you will need to access your learning\nmaterials online.", shape="box", style="filled,rounded"]
+	"p-internet" -> "p-internet::0" -> "p-computerskills"
+	"p-internet" -> "p-internet::1" -> "p-internet::1::info" -> "p-computerskills"
+
+
+	"uhiw-policies2" [label="{\N}|{―――\nWould you like to speak to someone about the university policies\nor processes?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"uhiw-policies2::0" [label="yes please", shape="box", style="filled"]
+		"uhiw-policies2::1" [label="no thanks", shape="box", style="filled"]
+	}
+	"uhiw-policies2::0::info" [label="Send an email to this address, email address\nhere. Don't forget to include your phone\nnumber if you want them to call you.", shape="box", style="filled,rounded"]
+	"uhiw-policies2" -> "uhiw-policies2::0" -> "uhiw-policies2::0::info" -> "uhiw-prevstudy1"
+	"uhiw-policies2" -> "uhiw-policies2::1" -> "uhiw-prevstudy1"
+
+
+	"p-writingassessment" [label="{\N}|{―――\nMany of your assessments at university are written; for example\nessays, reports and discussion papers based on research. Is this\nan area you are confident with?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-writingassessment::0" [label="yes", shape="box", style="filled"]
+		"p-writingassessment::1" [label="umm..", shape="box", style="filled"]
+	}
+	"p-writingassessment::0::info" [label="That's good to hear, let's move on.", shape="box", style="filled,rounded"]
+	"p-writingassessment::1::info" [label="These are skills that can be developed we\nencourage you to attend an appropriate\nworkshop. Details can be found here. It is\nnormal to be anxious about writing your\nassessments.", shape="box", style="filled,rounded"]
+	"p-writingassessment" -> "p-writingassessment::0" -> "p-writingassessment::0::info" -> "p-citations"
+	"p-writingassessment" -> "p-writingassessment::1" -> "p-writingassessment::1::info" -> "p-citations"
+
+
+	"sa-intro" [label="{\N}|{―――\nNearly done, this is the last section.\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-intro::0" [label="okay", shape="box", style="filled"]
+	}
+	"sa-intro" -> "sa-intro::0" -> "sa-career advice"
+
+
+	"lb-cultural" [label="{\N}|{―――\nSometime students tell us they have cultural obligations which\nimpact on their attendance at compulsory classes such as\nresidential schools/on-campus labs and /or availability for\ncompulsory placements.\n&&\n Do you think this may be of concern to you at some stage?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"lb-cultural::0" [label="yes", shape="box", style="filled"]
+		"lb-cultural::1" [label="no", shape="box", style="filled"]
+		"lb-cultural::2" [label="maybe a bit", shape="box", style="filled"]
+	}
+	"lb-cultural::0::info" [label="You may have a large extended family and be\nexpected to participate in family events.\nCultural responsibilities can be time\nconsuming. You should talk about this with\nyour pathways support officer.", shape="box", style="filled,rounded"]
+	"lb-cultural::2::info" [label="Planning ahead of time is always the best\napproach to be sure that possible solutions\nare explored so that essential course\nrequirements and other responsibilities can\nbe met. You should talk about this with your\npathways support officer.", shape="box", style="filled,rounded"]
+	"lb-cultural" -> "lb-cultural::0" -> "lb-cultural::0::info" -> "p-enrol"
+	"lb-cultural" -> "lb-cultural::1" -> "p-enrol"
+	"lb-cultural" -> "lb-cultural::2" -> "lb-cultural::2::info" -> "p-enrol"
+
+
+	"uhiw-advice" [label="{\N}|{―――\nWould you like some course advice?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"uhiw-advice::0" [label="yes", shape="box", style="filled"]
+		"uhiw-advice::1" [label="no", shape="box", style="filled"]
+	}
+	"uhiw-advice::0::info" [label="Send an email requesting course advice to\nthis address, email address here. Don't\nforget to include your phone number if you\nwant them to call you back.", shape="box", style="filled,rounded"]
+	"uhiw-advice" -> "uhiw-advice::0" -> "uhiw-advice::0::info" -> "uhiw-monitoring"
+	"uhiw-advice" -> "uhiw-advice::1" -> "uhiw-monitoring"
+
+
+	"sa-counselling" [label="{\N}|{―――\nIf you need to talk to someone we have counsellors available face\nto face, by phone, or email. Want to know more?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-counselling::0" [label="yes", shape="box", style="filled"]
+		"sa-counselling::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-counselling::0::info" [label="contact details", shape="box", style="filled,rounded"]
+	"sa-counselling" -> "sa-counselling::0" -> "sa-counselling::0::info" -> "theend"
+	"sa-counselling" -> "sa-counselling::1" -> "theend"
+
+
+	"uhiw-prestudy2" [label="{\N}|{―――\nAre you applying (or would you like to apply) for Recognised\nPrior Learning for your previous study or work experience?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"uhiw-prestudy2::0" [label="yes", shape="box", style="filled"]
+		"uhiw-prestudy2::1" [label="no", shape="box", style="filled"]
+	}
+	"uhiw-prestudy2::0::info" [label="Check out the course calculator found at url\nhere or speak to the Student Centre.", shape="box", style="filled,rounded"]
+	"uhiw-prestudy2" -> "uhiw-prestudy2::0" -> "uhiw-prestudy2::0::info" -> "uhiw-advice"
+	"uhiw-prestudy2" -> "uhiw-prestudy2::1" -> "uhiw-advice"
+
+
+	"p-computerskills" [label="{\N}|{―――\nYou will use a range of computer skills at university such as\nemail, creating documents and presentations,searching for\ninformation and keeping records of your work. How confident are\nyou with your computer skills?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-computerskills::0" [label="Very", shape="box", style="filled"]
+		"p-computerskills::1" [label="so so", shape="box", style="filled"]
+		"p-computerskills::2" [label="not at all", shape="box", style="filled"]
+	}
+	"p-computerskills::0::info" [label="Great, that will make your life much easier,\nhowever, there is support available should\nyou require it. Details here.", shape="box", style="filled,rounded"]
+	"p-computerskills::1::info" [label="If you find that you need to brush up on your\nskills there is plenty of support, details\nhere.", shape="box", style="filled,rounded"]
+	"p-computerskills::2::info" [label="It is perfectly normal to be concerned about\nlearning new technology for study. There is\nplenty of support, details here.", shape="box", style="filled,rounded"]
+	"p-computerskills" -> "p-computerskills::0" -> "p-computerskills::0::info" -> "p-psiers"
+	"p-computerskills" -> "p-computerskills::1" -> "p-computerskills::1::info" -> "p-psiers"
+	"p-computerskills" -> "p-computerskills::2" -> "p-computerskills::2::info" -> "p-psiers"
+
+
+	"lb-studyarea" [label="{\N}|{―――\nDo you have a designated study area?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"lb-studyarea::0" [label="I do", shape="box", style="filled"]
+		"lb-studyarea::1" [label="not yet", shape="box", style="filled"]
+	}
+	"lb-studyarea::0::info" [label="Well done, study requires intense\nconcentration so having a dedicated space to\ndo this is really wonderful. There are also\nexcellent facilities on campus that you are\nwelcome to use. The helpdesk at the library\ncan help you with this.", shape="box", style="filled,rounded"]
+	"lb-studyarea::1::info" [label="Study requires intense concentration so\nhaving a dedicated space to do this is really\nimportant. There are excellent facilities on\ncampus that you are welcome to use. The\nhelpdesk at the library can help you with\nthis.", shape="box", style="filled,rounded"]
+	"lb-studyarea" -> "lb-studyarea::0" -> "lb-studyarea::0::info" -> "lb-first"
+	"lb-studyarea" -> "lb-studyarea::1" -> "lb-studyarea::1::info" -> "lb-first"
+
+
+	"uhiw-keydates" [label="{\N}|{―――\nThere are a number of dates by which you need to have finalised\nenrolments, fees etc. They are shown in the Academic Calendar,\nare you aware of these?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"uhiw-keydates::0" [label="yes", shape="box", style="filled"]
+		"uhiw-keydates::1" [label="no", shape="box", style="filled"]
+	}
+	"uhiw-keydates::0::info" [label="Please be aware of Census date. It is\nimportant to finalise your enrolment before\ncensus date so as you are not charged fees\nfor subjects you do not wish to be enrolled\nin. The calendar can be found here (link)", shape="box", style="filled,rounded"]
+	"uhiw-keydates::1::info" [label="Please be aware of Census date. It is\nimportant to finalise your enrolment before\ncensus date so as you are not charged fees\nfor subjects you do not wish to be enrolled\nin. The calendar can be found here (link)", shape="box", style="filled,rounded"]
+	"uhiw-keydates" -> "uhiw-keydates::0" -> "uhiw-keydates::0::info" -> "uhiw-policies1"
+	"uhiw-keydates" -> "uhiw-keydates::1" -> "uhiw-keydates::1::info" -> "uhiw-policies1"
+
+
+	"lb-travel" [label="{\N}|{―――\nHow far do you live from a campus location while you're studying?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"lb-travel::0" [label="Greater than 30 mins", shape="box", style="filled"]
+		"lb-travel::1" [label="less than 30 mins", shape="box", style="filled"]
+	}
+	"lb-travel::0::info" [label="Attendance at class is really important if\nyou are studying internally. We do encourage\nstudents studying externally to attend tutes\nif they live close to their campus.", shape="box", style="filled,rounded"]
+	"lb-travel::1::info" [label="In planning your studies you will need to\nthink about managing your travel so that you\ncan attend important things such as\nresidential placements, practicum and\npossibly labs.", shape="box", style="filled,rounded"]
+	"lb-travel" -> "lb-travel::0" -> "lb-travel::0::info" -> "lb-studyarea"
+	"lb-travel" -> "lb-travel::1" -> "lb-travel::1::info" -> "lb-studyarea"
+
+
+	"p-unitprofiles" [label="{\N}|{―――\nDo you know where to find Unit Profiles? These are provided by\nthe lecturer in your subjects to provide you a guide to the\nsubject.\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-unitprofiles::0" [label="yes", shape="box", style="filled"]
+		"p-unitprofiles::1" [label="no", shape="box", style="filled"]
+		"p-unitprofiles::2" [label="not sure", shape="box", style="filled"]
+	}
+	"p-unitprofiles::0::info" [label="They are really important documents so make\nsure that you read them carefully.", shape="box", style="filled,rounded"]
+	"p-unitprofiles::1::info" [label="These are really important documents and you\ncan find them on your learning management\nsystem, name of system and url here.", shape="box", style="filled,rounded"]
+	"p-unitprofiles::2::info" [label="These are really important documents and you\ncan find them on your learning management\nsystem, name of system and url here.", shape="box", style="filled,rounded"]
+	"p-unitprofiles" -> "p-unitprofiles::0" -> "p-unitprofiles::0::info" -> "p-internet"
+	"p-unitprofiles" -> "p-unitprofiles::1" -> "p-unitprofiles::1::info" -> "p-internet"
+	"p-unitprofiles" -> "p-unitprofiles::2" -> "p-unitprofiles::2::info" -> "p-internet"
+
+
+	"sa-bluecard" [label="{\N}|{―――\nSome courses have requirements to get a Blue Card, immunisations,\nor a police check and these may take time to get. Have you\nchecked your units/subjects for requirments like this?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-bluecard::0" [label="yes", shape="box", style="filled"]
+		"sa-bluecard::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-bluecard::0::info" [label="If you need further assistance other than\nstudent portal name please contact your\nacademic liaison. Find out about them here\nlink", shape="box", style="filled,rounded"]
+	"sa-bluecard::1::info" [label="If you need further assistance other than\nstudent portal name please contact your\nacademic liaison. Find out about them here\nlink", shape="box", style="filled,rounded"]
+	"sa-bluecard" -> "sa-bluecard::0" -> "sa-bluecard::0::info" -> "sa-indigenous"
+	"sa-bluecard" -> "sa-bluecard::1" -> "sa-bluecard::1::info" -> "sa-indigenous"
+
+
+	"sa-liaison" [label="{\N}|{―――\nYou have support from an Academic Liaison in your school. Want to\nfind out more about this?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-liaison::0" [label="yep", shape="box", style="filled"]
+		"sa-liaison::1" [label="nah", shape="box", style="filled"]
+	}
+	"sa-liaison::0::info" [label="You can get wonderful advice on all things\ncourse related. Find them here at contact\ndetails.", shape="box", style="filled,rounded"]
+	"sa-liaison" -> "sa-liaison::0" -> "sa-liaison::0::info" -> "sa-loan"
+	"sa-liaison" -> "sa-liaison::1" -> "sa-loan"
+
+
+	"lb-first" [label="{\N}|{―――\nAre you the first in your family to go to uni?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"lb-first::0" [label="yes", shape="box", style="filled"]
+		"lb-first::1" [label="no", shape="box", style="filled"]
+	}
+	"lb-first::0::info" [label="Congratulations we really welcome you to\nUniversity. There are lots of supports\navailable to help you, we will talk more\nabout these later.", shape="box", style="filled,rounded"]
+	"lb-first::1::info" [label="You'll be able to talk to your family members\nabout their university journey. Remember,\nevery journey is different so there are lots\nof supports available on campus as well. We\nwill be talking more about these later.", shape="box", style="filled,rounded"]
+	"lb-first" -> "lb-first::0" -> "lb-first::0::info" -> "lb-home"
+	"lb-first" -> "lb-first::1" -> "lb-first::1::info" -> "lb-home"
+
+
+	"p-alc" [label="{\N}|{―――\nDid you know there is an Academic Learning Centre here to help\nyou?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-alc::0" [label="yes", shape="box", style="filled"]
+		"p-alc::1" [label="no", shape="box", style="filled"]
+	}
+	"p-alc::0::info" [label="The Academic Learning Centre is a wonderful\nplace that helps you develop your skills as a\nlearner through providing workshops,\nresources and individual consultations.\nCheck out their website here.", shape="box", style="filled,rounded"]
+	"p-alc::1::info" [label="The Academic Learning Centre is a wonderful\nplace that helps you develop your skills as a\nlearner through providing workshops,\nresources and individual consultations.\nCheck out their website here.", shape="box", style="filled,rounded"]
+	"p-alc" -> "p-alc::0" -> "p-alc::0::info" -> "p-placements1"
+	"p-alc" -> "p-alc::1" -> "p-alc::1::info" -> "p-placements1"
+
+
+	"sa-forms" [label="{\N}|{―――\nHave your completed all your forms? HECS, SAF?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-forms::0" [label="yes", shape="box", style="filled"]
+		"sa-forms::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-forms::1::info" [label="You will be given reminders however you are\nable to check in your student portal.\nDescription of how to find it?", shape="box", style="filled,rounded"]
+	"sa-forms" -> "sa-forms::0" -> "sa-orientation"
+	"sa-forms" -> "sa-forms::1" -> "sa-forms::1::info" -> "sa-orientation"
+
+
+	"sa-orientation" [label="{\N}|{―――\nHave you attended orientation or Orientation Online?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-orientation::0" [label="yes", shape="box", style="filled"]
+		"sa-orientation::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-orientation::0::info" [label="Research shows that students who attend O\nweek are well prepared for their study.", shape="box", style="filled,rounded"]
+	"sa-orientation::1::info" [label="O week is fantastic we encourage you to go to\nas many session as you can, the schedule of\nevents is here. If you aren't able to make it\nor O week has already come and gone there are\nsome online resources here.", shape="box", style="filled,rounded"]
+	"sa-orientation" -> "sa-orientation::0" -> "sa-orientation::0::info" -> "sa-card"
+	"sa-orientation" -> "sa-orientation::1" -> "sa-orientation::1::info" -> "sa-card"
+
+
+	"p-psiers" [label="{\N}|{―――\nHave your been contacted by your PSIERS staff member?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-psiers::0" [label="yes", shape="box", style="filled"]
+		"p-psiers::1" [label="no", shape="box", style="filled"]
+		"p-psiers::2" [label="I don't think so", shape="box", style="filled"]
+	}
+	"p-psiers::1::info" [label="Please let us know and we will ask someone to\ncontact you. Need a link or something for\nthis", shape="box", style="filled,rounded"]
+	"p-psiers::2::info" [label="Please let us know and we will ask someone to\ncontact you. Need a link or something for\nthis", shape="box", style="filled,rounded"]
+	"p-psiers" -> "p-psiers::0" -> "uhiw-keydates"
+	"p-psiers" -> "p-psiers::1" -> "p-psiers::1::info" -> "uhiw-keydates"
+	"p-psiers" -> "p-psiers::2" -> "p-psiers::2::info" -> "uhiw-keydates"
+
+
+	"sa-card" [label="{\N}|{―――\nHave you applied for your student card? You will need it for\nexams. You can also get discounts at many businesses and for\ntravel as a student.\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-card::0" [label="done", shape="box", style="filled"]
+		"sa-card::1" [label="not yet", shape="box", style="filled"]
+	}
+	"sa-card::0::info" [label="Hope you have a great photo.", shape="box", style="filled,rounded"]
+	"sa-card::1::info" [label="The student centre can help you out with\nthis. The form and instructions can be found\nhere.", shape="box", style="filled,rounded"]
+	"sa-card" -> "sa-card::0" -> "sa-card::0::info" -> "sa-tutor"
+	"sa-card" -> "sa-card::1" -> "sa-card::1::info" -> "sa-tutor"
+
+
+	"sa-studentportal" [label="{\N}|{―――\nAre you comfortable using the Student Portal, name here?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-studentportal::0" [label="yes", shape="box", style="filled"]
+		"sa-studentportal::1" [label="no", shape="box", style="filled"]
+		"sa-studentportal::2" [label="I can login ...", shape="box", style="filled"]
+	}
+	"sa-studentportal::0::info" [label="That's good news, you will be using this\nconstantly throughout your course.", shape="box", style="filled,rounded"]
+	"sa-studentportal::1::info" [label="name of portal is an integral part of your\nstudy so please log as soon as possible. See\nhere if you are having any trouble with this.\nYou should have been given login instructions\nhowever they got instructions.", shape="box", style="filled,rounded"]
+	"sa-studentportal" -> "sa-studentportal::0" -> "sa-studentportal::0::info" -> "sa-email"
+	"sa-studentportal" -> "sa-studentportal::1" -> "sa-studentportal::1::info" -> "sa-email"
+	"sa-studentportal" -> "sa-studentportal::2" -> "sa-email"
+
+
+	"lb-finances" [label="{\N}|{―――\nLots of students worry about finances during their studies. Are\nfinances a concern for you?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"lb-finances::0" [label="yes", shape="box", style="filled"]
+		"lb-finances::1" [label="no", shape="box", style="filled"]
+	}
+	"lb-finances::0::info" [label="There are some options like scholarships or\nstudent loans or you may be eligible for\nCentrelink. See contact info here for further\ninformation.", shape="box", style="filled,rounded"]
+	"lb-finances" -> "lb-finances::0" -> "lb-finances::0::info" -> "lb-cultural"
+	"lb-finances" -> "lb-finances::1" -> "lb-cultural"
+
+
+	"lb-studyload" [label="{\N}|{―――\nHi \{lb-intro\}. Our conversation today will look like this:\n![conversation flow diagram](conversation.dot.png) (It's a very\ntall diagram, click it to see it more clearly.)\n&&\nHow many [subjects/courses](https://en.wikipedia.org/wiki/Course_\n(education)) are you enrolled in this semester?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"lb-studyload::0" [label="1 or 2", shape="box", style="filled"]
+		"lb-studyload::1" [label="3 or more", shape="box", style="filled"]
+	}
+	"lb-studyload::1::info" [label="3 subjects or more is a full time load. A\nfull-time study load is approximately 10 to\n12 hours work per subject, per week. If you\nare working more than 20 hours per week we\nrecommend a part time study load.", shape="box", style="filled,rounded"]
+	"lb-studyload" -> "lb-studyload::0" -> "lb-travel"
+	"lb-studyload" -> "lb-studyload::1" -> "lb-studyload::1::info" -> "lb-travel"
+
+
+	"p-placements2" [label="{\N}|{―――\nDo you know where to find out about them?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-placements2::0" [label="yes", shape="box", style="filled"]
+		"p-placements2::1" [label="no", shape="box", style="filled"]
+	}
+	"p-placements2::1::info" [label="Go to your subject page and each unit/subject\nshould have your details listed. If they are\nnot indicated it could mean that they are not\npart of this unit/subject. You could check\nthis with your unit/subject coordinator.", shape="box", style="filled,rounded"]
+	"p-placements2" -> "p-placements2::0" -> "p-placements3"
+	"p-placements2" -> "p-placements2::1" -> "p-placements2::1::info" -> "p-placements3"
+
+
+	"p-placements3" [label="{\N}|{―――\nHave you considered that you may need to travel for a residential\nschool or to do a placement/practicum?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-placements3::0" [label="yes", shape="box", style="filled"]
+		"p-placements3::1" [label="no", shape="box", style="filled"]
+	}
+	"p-placements3::0::info" [label="Don't forget to budget for travel,\naccommodation and other expenses. You can\ntalk to your lecturer about this.", shape="box", style="filled,rounded"]
+	"p-placements3::1::info" [label="For many students this requires them to take\ntime off work so start organising this as\nsoon as possible. Don't forget to budget\nfortravel, accommodation and other expenses.", shape="box", style="filled,rounded"]
+	"p-placements3" -> "p-placements3::0" -> "p-placements3::0::info" -> "p-unitprofiles"
+	"p-placements3" -> "p-placements3::1" -> "p-placements3::1::info" -> "p-unitprofiles"
+
+
+	"p-placements1" [label="{\N}|{―――\nDoes your course have Residential Schools, Placements, or\nPracticums?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-placements1::0" [label="yes", shape="box", style="filled"]
+		"p-placements1::1" [label="no", shape="box", style="filled"]
+		"p-placements1::2" [label="not sure", shape="box", style="filled"]
+	}
+	"p-placements1::0::info" [label="These are a wonderful experiences of work\nintegrated learning. Make sure you\nfamiliarise yourself with dates of placements\nso that you can plan ahead.", shape="box", style="filled,rounded"]
+	"p-placements1" -> "p-placements1::0" -> "p-placements1::0::info" -> "p-placements2"
+	"p-placements1" -> "p-placements1::1" -> "p-unitprofiles"
+	"p-placements1" -> "p-placements1::2" -> "p-placements2"
+
+
+	"p-comms" [label="{\N}|{―――\nIn your studies you will be expected to produce written work and\ncomplate oral presentations. How confident do you feel with\nthese?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-comms::0" [label="very", shape="box", style="filled"]
+		"p-comms::1" [label="so so", shape="box", style="filled"]
+		"p-comms::2" [label="not at all", shape="box", style="filled"]
+	}
+	"p-comms::0::info" [label="Brilliant! These skills will be a great help\nto you in your studies.", shape="box", style="filled,rounded"]
+	"p-comms::1::info" [label="These are skills that can be developed, we\nencourage you to attend the appropriate\nlearning workshop. Details can be found here.", shape="box", style="filled,rounded"]
+	"p-comms::2::info" [label="These are skills that can be developed, we\nencourage you to attend a learning workshop.\nDetails can be found here.", shape="box", style="filled,rounded"]
+	"p-comms" -> "p-comms::0" -> "p-comms::0::info" -> "p-numeracy"
+	"p-comms" -> "p-comms::1" -> "p-comms::1::info" -> "p-numeracy"
+	"p-comms" -> "p-comms::2" -> "p-comms::2::info" -> "p-numeracy"
+
+
+	"sa-scholarships" [label="{\N}|{―――\nDid you know we offer many scholarships?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-scholarships::0" [label="yes", shape="box", style="filled"]
+		"sa-scholarships::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-scholarships::0::info" [label="Great, find out more about them here.", shape="box", style="filled,rounded"]
+	"sa-scholarships::1::info" [label="All the information can be found here.", shape="box", style="filled,rounded"]
+	"sa-scholarships" -> "sa-scholarships::0" -> "sa-scholarships::0::info" -> "sa-disability"
+	"sa-scholarships" -> "sa-scholarships::1" -> "sa-scholarships::1::info" -> "sa-disability"
+
+
+	"sa-career advice" [label="{\N}|{―――\nWould you benefit from some career advice?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-career advice::0" [label="yes please", shape="box", style="filled"]
+		"sa-career advice::1" [label="no thanks", shape="box", style="filled"]
+	}
+	"sa-career advice::0::info" [label="That is a fantastic step to take, it can be\ndifficult to decide on a career path. Please\nsend us an email to email address here and we\nwill contact you. Don't forget to include\nyour phone number if you want us to call you.", shape="box", style="filled,rounded"]
+	"sa-career advice" -> "sa-career advice::0" -> "sa-career advice::0::info" -> "sa-scholarships"
+	"sa-career advice" -> "sa-career advice::1" -> "sa-scholarships"
+
+
+	"lb-home" [label="{\N}|{―――\nDo you have support at home?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"lb-home::0" [label="yes", shape="box", style="filled"]
+		"lb-home::1" [label="no", shape="box", style="filled"]
+	}
+	"lb-home::0::info" [label="Great, take advantage of all the support they\ncan give you. You can find out more at the\nparents and partners event.", shape="box", style="filled,rounded"]
+	"lb-home::1::info" [label="The University has a fantastic mentoring\nprogram, make sure you sign up for that.", shape="box", style="filled,rounded"]
+	"lb-home" -> "lb-home::0" -> "lb-home::0::info" -> "lb-responsibilities"
+	"lb-home" -> "lb-home::1" -> "lb-home::1::info" -> "lb-responsibilities"
+
+
+	"sa-indigenous" [label="{\N}|{―――\nWe offer support for indigenous students. Want to know more?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-indigenous::0" [label="yes", shape="box", style="filled"]
+		"sa-indigenous::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-indigenous::0::info" [label="link", shape="box", style="filled,rounded"]
+	"sa-indigenous" -> "sa-indigenous::0" -> "sa-indigenous::0::info" -> "sa-forms"
+	"sa-indigenous" -> "sa-indigenous::1" -> "sa-forms"
+
+
+	"lb-intro" [label="{\N}|{―――\nSometimes students who commence the program tell us they find it\ndifficult to achieve a _study/work/family/life_ balance.\n&&\nThis may include balancing **full-time study** with **full-** or\n**part-time paid work**, as well as with _caring_\nresponsibilities.\n&&\nIs [study/life balance](https://onetwentyseven.blog/2017/11/29\n/choose-two/) a concern for you? Let's work through some\nexamples, but first: what's your name?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+	}
+		"lb-intro::collect" [label="user enters: \{lb-intro\}", shape="parallelogram", style="filled"]
+		"lb-intro" -> "lb-intro::collect" -> "lb-studyload"
+
+
+	"sa-email" [label="{\N}|{―――\nDo you want to know how to link your student email and personal\nemail?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-email::0" [label="that would be great", shape="box", style="filled"]
+		"sa-email::1" [label="no thanks", shape="box", style="filled"]
+	}
+	"sa-email::0::info" [label="Follow this link to find the instructions\nlink here or contact one of our IT people\nhere.", shape="box", style="filled,rounded"]
+	"sa-email" -> "sa-email::0" -> "sa-email::0::info" -> "sa-liaison"
+	"sa-email" -> "sa-email::1" -> "sa-liaison"
+
+
+	"p-requirements" [label="{\N}|{―――\nInherent requirements are the fundamental abilities, attributes,\nskills and behaviours necessary to complete the learning outcomes\nof a course. Do you think you understand all the inherent\nrequirements for your course?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-requirements::0" [label="yes", shape="box", style="filled"]
+		"p-requirements::1" [label="no", shape="box", style="filled"]
+		"p-requirements::2" [label="maybe not entirely", shape="box", style="filled"]
+	}
+	"p-requirements::0::info" [label="Wonderful. Inherent and Course requirements\nmake clear the expectations and requirements\nfor your future study.", shape="box", style="filled,rounded"]
+	"p-requirements::1::info" [label="Inherent and Course requirements are\nimportant documents that make clear what is\nrequired to be successful in your course and\nfor the work force. These are available at\nurl here. We encourage you to become familiar\nwith these documents.", shape="box", style="filled,rounded"]
+	"p-requirements::2::info" [label="Inherent and Course requirements are\nimportant documents that make clear what is\nrequired to be successful in your course and\nfor the work force. These are available at\nurl here. We encourage you to become familiar\nwith these documents.", shape="box", style="filled,rounded"]
+	"p-requirements" -> "p-requirements::0" -> "p-requirements::0::info" -> "p-comms"
+	"p-requirements" -> "p-requirements::1" -> "p-requirements::1::info" -> "p-comms"
+	"p-requirements" -> "p-requirements::2" -> "p-requirements::2::info" -> "p-comms"
+
+
+	"sa-textbooks" [label="{\N}|{―――\nHave you found out what textbooks you need and where to buy them?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-textbooks::0" [label="yes", shape="box", style="filled"]
+		"sa-textbooks::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-textbooks::1::info" [label="Go and do this now. If you are buying second\nhand textbooks they are often posted on\nwhereever, however do check that it is the\ncorrect edition, or speak to your lecturer in\ncase there is only a small change in the\nlater edition.", shape="box", style="filled,rounded"]
+	"sa-textbooks" -> "sa-textbooks::0" -> "sa-counselling"
+	"sa-textbooks" -> "sa-textbooks::1" -> "sa-textbooks::1::info" -> "sa-counselling"
+
+
+	"uhiw-monitoring" [label="{\N}|{―――\nAre you aware that the university monitors your academic\nprogress. This is important because if you do happen to fail 50%\nof your units or the same unit twice you will be contacted by the\nuniversity checking to see if everything is okay.\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"uhiw-monitoring::0" [label="yes", shape="box", style="filled"]
+		"uhiw-monitoring::1" [label="no", shape="box", style="filled"]
+	}
+	"uhiw-monitoring::0::info" [label="This is a really important policy to be aware\nof. Find it here.", shape="box", style="filled,rounded"]
+	"uhiw-monitoring::1::info" [label="This is a really important policy to be aware\nof. Find it here.", shape="box", style="filled,rounded"]
+	"uhiw-monitoring" -> "uhiw-monitoring::0" -> "uhiw-monitoring::0::info" -> "sa-intro"
+	"uhiw-monitoring" -> "uhiw-monitoring::1" -> "uhiw-monitoring::1::info" -> "sa-intro"
+
+
+	"p-enrol" [label="{\N}|{―――\nDid you enrol on time?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"p-enrol::0" [label="yes", shape="box", style="filled"]
+		"p-enrol::1" [label="no", shape="box", style="filled"]
+	}
+	"p-enrol::1::info" [label="Do you need some help to catch up? Contact\nyour subject/unit coordinator.", shape="box", style="filled,rounded"]
+	"p-enrol" -> "p-enrol::0" -> "p-requirements"
+	"p-enrol" -> "p-enrol::1" -> "p-enrol::1::info" -> "p-requirements"
+
+
+	"sa-disability" [label="{\N}|{―――\nAre you aware that disability support is available to you, even\nif your disability is only for a short while?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-disability::0" [label="yes", shape="box", style="filled"]
+		"sa-disability::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-disability::0::info" [label="This support is available for all forms of\ndisability. Student can access this during\ntimes of stress, illness or accident. Find\nout more about them here.", shape="box", style="filled,rounded"]
+	"sa-disability::1::info" [label="This support is available for all forms of\ndisability. Student can access this during\ntimes of stress, illness or accident. Find\nout more about them here.", shape="box", style="filled,rounded"]
+	"sa-disability" -> "sa-disability::0" -> "sa-disability::0::info" -> "sa-studentportal"
+	"sa-disability" -> "sa-disability::1" -> "sa-disability::1::info" -> "sa-studentportal"
+
+
+	"uhiw-prevstudy1" [label="{\N}|{―――\nHave you studied  at university previously?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"uhiw-prevstudy1::0" [label="yes", shape="box", style="filled"]
+		"uhiw-prevstudy1::1" [label="no", shape="box", style="filled"]
+	}
+	"uhiw-prevstudy1::0::info" [label="Things might have changed since you last\nstudied, we recommend that all students take\nadvantage of the full range of support\nservices. To find out more, (link)", shape="box", style="filled,rounded"]
+	"uhiw-prevstudy1::1::info" [label="We recommend that all students take advantage\nof the full range of support services.", shape="box", style="filled,rounded"]
+	"uhiw-prevstudy1" -> "uhiw-prevstudy1::0" -> "uhiw-prevstudy1::0::info" -> "uhiw-prestudy2"
+	"uhiw-prevstudy1" -> "uhiw-prevstudy1::1" -> "uhiw-prevstudy1::1::info" -> "uhiw-advice"
+
+
+	"lb-responsibilities" [label="{\N}|{―――\nDo you have family responsibilities?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"lb-responsibilities::0" [label="yes", shape="box", style="filled"]
+		"lb-responsibilities::1" [label="no", shape="box", style="filled"]
+	}
+	"lb-responsibilities::0::info" [label="If you are worried about your family\nresponsibility impinging on your study you\ncan access student well being staff. Contact\ndetails here.", shape="box", style="filled,rounded"]
+	"lb-responsibilities" -> "lb-responsibilities::0" -> "lb-responsibilities::0::info" -> "lb-finances"
+	"lb-responsibilities" -> "lb-responsibilities::1" -> "lb-finances"
+
+
+	"theend" [label="{\N}|{―――\nThanks, come back anytime! Got any feedback?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"theend::0" [label="yes", shape="box", style="filled"]
+		"theend::1" [label="no", shape="box", style="filled"]
+	}
+	"theend::0::info" [label="Great, we welcome this, please send us an\nemail email link here.", shape="box", style="filled,rounded"]
+	"theend::1::info" [label="Bye", shape="box", style="filled,rounded"]
+	"theend" -> "theend::0" -> "theend::0::info" -> "::END::"
+	"theend" -> "theend::1" -> "theend::1::info" -> "::END::"
+
+
+	"sa-tutor" [label="{\N}|{―――\nYou can also accessing tutoring online. Want to know more?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-tutor::0" [label="yes", shape="box", style="filled"]
+		"sa-tutor::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-tutor::0::info" [label="You can find all the information you need at\nlink here.", shape="box", style="filled,rounded"]
+	"sa-tutor" -> "sa-tutor::0" -> "sa-tutor::0::info" -> "sa-mentor"
+	"sa-tutor" -> "sa-tutor::1" -> "sa-mentor"
+
+
+	"sa-loan" [label="{\N}|{―――\nAre you interested in a student loan?\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-loan::0" [label="yes", shape="box", style="filled"]
+		"sa-loan::1" [label="no", shape="box", style="filled"]
+	}
+	"sa-loan" -> "sa-loan::0" -> "sa-bluecard"
+	"sa-loan" -> "sa-loan::1" -> "sa-bluecard"
+
+
+	"sa-mentor" [label="{\N}|{―――\nWould you like info on the Mentor programme? This is where you\nare linked up with a fellow student that often has already\ncompleted the unit you are studying and are able to provide you\nwith some guidance.\n―――\n}",shape="record",style="filled,rounded"]
+	{ rank=same; 
+		"sa-mentor::0" [label="that would be terrific", shape="box", style="filled"]
+		"sa-mentor::1" [label="I'm OK thanks", shape="box", style="filled"]
+	}
+	"sa-mentor::0::info" [label="All the information you need can be found\nhere.", shape="box", style="filled,rounded"]
+	"sa-mentor::1::info" [label="Students who connect with peers often perform\nbetter than those who don't but there are\nother ways of connecting such as engaging in\ntutorials or joining in with other activities\naround the uni.", shape="box", style="filled,rounded"]
+	"sa-mentor" -> "sa-mentor::0" -> "sa-mentor::0::info" -> "sa-textbooks"
+	"sa-mentor" -> "sa-mentor::1" -> "sa-mentor::1::info" -> "sa-textbooks"
+
+
+}

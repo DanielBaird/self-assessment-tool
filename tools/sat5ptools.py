@@ -244,7 +244,7 @@ def conversation_to_dot(conversation, background='transparent'):
 		# the node itself
 		# \u2015 is a "horizontal bar" character similar to an em-dash
 		# \u2500 is a horizontal box-drawing character
-		dot.append(u'\t"{}" [label="{{\\N}}|{{\u2500\u2500\u2500\\n{}\\n\u2500\u2500\u2500\\n}}",shape="record",style="filled,rounded"]'.format(qid, prep_string(qn['text'])))
+		dot.append(u'\t"{}" [label="{{\\N}}|{{\u2015\u2015\u2015\\n{}\\n\u2015\u2015\u2015\\n}}",shape="record",style="filled,rounded"]'.format(qid, prep_string(qn['text'])))
 
 		# the node's answers
 		dot.append(u'\t{ rank=same; ')

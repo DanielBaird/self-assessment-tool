@@ -133,7 +133,6 @@
   .closed #tocHeading:after { content: ' \25b8' }
   .open   #tocContent { height: auto; }
   .closed #tocContent { height: 0; }
-  xa[href^="#"] { text-decoration: none; }
 
 /* svg diagrams */
 svg {
@@ -169,7 +168,26 @@ svg use.highlight {
 
 <div class="wrapper language-bash">
 
-<h1 id="distributing-sat5p-tools">Distributing SAT5P tools</h1>
+<h1 id="developing-sat5p-tools">Developing SAT5P tools</h1>
+
+<h2 id="development">Development</h2>
+
+<p>The <code>sat5ptools</code> package is a single file python module. It uses <a href="http://click.pocoo.org/">Click</a> to deliver several command line tools.</p>
+
+<p>To work on the module, follow the Click <a href="http://click.pocoo.org/5/setuptools/"><code>setuptools</code> integration instructions</a>..</p>
+
+<p>Initially, from the <code>tools</code> directory:</p>
+
+<pre><code>virtualenv venv
+. venv/bin/activate
+pip install --editable .
+</code></pre>
+
+<p>This installs the package you’re working on into your path, so executing <code>excel2all</code> will run out of the source in the <code>tools</code> directory, and you can code away.</p>
+
+<p>You can run <code>deactivate</code> to drop out of your development virtual environment, and run <code>. venv/bin/activate</code> any time to get back in.</p>
+
+<h2 id="distributing-to-pypi">Distributing to PyPI</h2>
 
 <p>Switch into the <code>tools</code> directory. <strong>Update the version number in <code>setup.py</code>.</strong> Make sure you’re in the <code>venv</code> virtual environment (<code>. venv/bin/activate</code>). Then build source and wheel distributions:</p>
 
