@@ -8,15 +8,27 @@ For the purposes of this project no rows should be added or deleted either unles
 
 
 ## Spreadsheet Columns explained
-|Column name | What goes here?
-|--- | ---
-|Section | Questions should be grouped with other similar questions. Ideally each section will have an introduction that helps the student get their bearings and helps them realise that any problems they may have are shared by others and they probably aren't the first.
+
+### Section
+Questions should be grouped with other similar questions. Ideally each section will have an introduction that helps the student get their bearings and helps them realise that any problems they may have are shared by others and they probably aren't the first.
 The section name should be brief but must be text that you would be happy to see on the web-site. They will be used as a quick jump in point for a student returning to the tool for whatever reason.
-|Question Code | A short code that uniquely identifies this question. It will be used within the responses to specify which question is next after the student has selected a particular response. Usually the flow will be onto the next question (this is the default behaviour) but if you want to skip the next question based on a particular response then you must specify which is the next question to jump to. This is done by adding `GOTO:`<question code> at the end of the response text. This will never be visible on the web-site.
-|Question / Statement | This text will be shown in the conversation bubble from the university's avatar. It can be a statement of information or a question that elicits a response. You may use formatting in this content - Content formatting explained.
-|Possible Responses | Comma separated, brief responses for the student to choose between to answer the question. Try to keep to a consistent voice - don't swap between formal and informal. Do try to mix up the responses a bit, don't always have *yes,no* or it will become a bit of a blur for the user. Think about adding a *not sure* option so that they don't feel pressured if they aren't confident of exactly what the question was trying to elicit. These responses will get displayed in the order that you enter them here and with the same capitalisation and spelling.
-|If they choose response 1 | This is what will happen if they choose the 1st response from the list in the `Possible Responses column` (when reading left to right). Any text here will be only be displayed if the student selected this response. You may use formatting in this text, see `Content formatting explained`. It will be displayed in another conversation bubble. If this field is left empty no additional text will be displayed and the next question in the spreadsheet will start immediately after the response is selected. If you want to direct them to a different question after selecting this response then you must tell us by adding `GOTO:`<question code> here.
-|If they choose response 2-5 | Exactly the behaviour as for `If they choose response 1`.
+### Question Code
+A short code that uniquely identifies this question. 
+It will be used within the responses to specify which question is next after the student has selected a particular response. Usually the flow will be onto the next question (this is the default behaviour) but if you want to skip the next question based on a particular response then you must specify which is the next question to jump to. This is done by adding `GOTO:`<question code> at the end of the response text. 
+The question code will never be visible on the web-site.
+### Question / Statement 
+This text will be shown in a conversation bubble from the university's avatar. It can be a statement of information or a question that elicits a response. 
+You may use formatting in this content - [Content formatting explained](#content-formatting-explained).
+### Possible Responses
+These are brief responses for the student to choose between to answer the question. They must be comma separated. 
+Try to keep to a consistent voice - don't swap between formal and informal. Do try to mix up the responses a bit, don't always have *yes,no* or it will become a bit of a blur for the user. Think about adding a *not sure* option so that they don't feel pressured if they aren't confident of exactly what the question was trying to elicit. 
+These responses will get displayed in the order that you enter them here and with the same capitalisation and spelling.
+### If they choose response 1
+This is what will happen if they choose the 1st response from the list in the `Possible Responses column` (when reading left to right). Any text here will be only be displayed if the student selected this response. 
+You may use formatting in this text, see [Content formatting explained](#content-formatting-explained). 
+The text will be displayed in another conversation bubble. If this field is left empty no additional text will be displayed and the next question in the spreadsheet will start immediately after the response is selected. If you want to direct them to a different question after selecting this response then you must tell us by adding `GOTO:`<question code> here.
+### If they choose response 2-5
+Exactly the behaviour as for `If they choose response 1`.
 
 
 ## Content formatting explained
