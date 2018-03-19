@@ -3,7 +3,7 @@ Self Assessment Tool - 5P project
 
 ### For conversation authors
 
-Not much for you here yet...
+[Content Editing](content-editor.html) instructions for spreadsheet editors.
 
 
 ### For administrators and maintainers
