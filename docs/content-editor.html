@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.4.1/themes/prism.css">
+<style>
+  html {
+    font-family: lato, sans-serif;
+    font-size: 14px;
+    font-size: calc(14px + 0.2vw);
+    line-height: 1.5;
+    background: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 1rem 5rem;
+  }
+
+  h1 {
+    color: #f3f9ff;
+    color; white;
+    background: #357;
+    line-height: 1.1;
+    margin: 6rem 0 1rem;
+    padding: 1em 0;
+    box-shadow: -39.9rem 0 #357, 39.9rem 0 #357;
+  }
+
+  h1:first-of-type {
+    margin-top: 0;
+  }
+
+  h1, h2 {
+    font-weight: 100;
+    letter-spacing: -0.025em;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: #357;
+    margin: 0 0 0 -0.1em;
+    padding: 1.5em 0 0.5rem;
+  }
+
+	h1 { font-size: 2.369rem; opacity: 1.00; font-weight: 400; }
+  /* not using 3.157rem */
+	h2 { font-size: 2.369rem; opacity: 0.85; font-weight: 200; }
+	h3 { font-size: 1.778rem; opacity: 0.90; font-weight: 400; }
+	h4 { font-size: 1.333rem; opacity: 0.95; font-weight: 600; }
+	h5 { font-size: 1.000rem; opacity: 1.00; font-weight: 800; }
+	h6 { font-size: 1.000rem; opacity: 1.00; font-style: italic; }
+
+  h2 { 
+    border-bottom: 1px solid;
+    padding: 3rem 0 0;
+    margin-bottom: 1rem;
+  }
+
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+  h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    border-bottom: 2px dotted;
+  }
+
+  p, li {
+    margin: 0;
+    padding: 0.33em 0;
+  }
+
+  li {
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+
+  table, td, th {
+    border-collapse: collapse;
+    padding: 0.2em 0.5em;
+    border: 1px solid silver;
+  }
+
+  code {
+    font-size: smaller;
+  }
+
+  p > code {
+    background: #f3f9ff;
+    padding: 0.3em;
+    border-radius: 0.3em;
+  }
+
+  pre {
+    padding: 0.5em;
+    background: #f3f9ff;
+    border-left: 1px solid #eef0ff;
+    max-width: 100%;
+    overflow-x: auto;
+    /*box-shadow: -50rem 0 #f3f9ff, 50rem 0 #f3f9ff;*/
+  }
+
+  pre.small { font-size: 75%; color: rgba(0,0,0, 0.8) }
+
+  /* override some Prism sourcecode highlight styles */
+  pre[class*="language-"] {
+    line-height: 1.2;
+    overflow-x: auto;
+    background: #f3f9ff;
+  }
+  :not(pre) > code[class*="language-"] {
+    background: #f3f9ff;
+    padding: 0.3em;
+    border-radius: 0.3em;
+  }
+
+  code[class*="language-"] {
+    line-height: 1.2;
+  }
+
+  pre p {
+    padding: 0;
+  }
+
+
+  /* ToC management */
+  #tocHeading { cursor: pointer; }
+  #tocContent { overflow: hidden; font-size: smaller; }
+  .open   #tocHeading:after { content: ' \25be' }
+  .closed #tocHeading:after { content: ' \25b8' }
+  .open   #tocContent { height: auto; }
+  .closed #tocContent { height: 0; }
+
+/* svg diagrams */
+svg {
+  position: relative;
+  z-index: 1;
+  fill: rgba(200,200,200, 0.25);
+  stroke: #999;
+  stroke-width: 0.3;
+}
+#sourcesvg {
+  display: none;
+}
+#diag-bg {
+  fill: rgba(255,255,255, 1);
+  stroke: none;
+}
+svg.diag {
+  transform: rotate(6deg);
+  float: right;
+  width: 111px;
+  height: 144px;
+  margin: 2em 0 0 2em;
+}
+svg use.highlight {
+  fill: #ff9;
+  fill: rgba(255,255,153, 0.9);
+  stroke: #333;
+  stroke-width: 0.6;
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper language-bash">
+<h1 id="what-do-i-do">What do I do?</h1>
+<p>As a content editor you will start with the base question and response spreadsheet and review all of the questions and responses for suitability for your institution.</p>
+
+<p>We have highlighted in <strong>red</strong> words or phrases that you will most likely have to modify. These include terminology that may differ between institutions e.g. unit vs subject, names of specific systems e.g. student portal name (could be LearnJCU, Moodle, …) and contact details and links to where further information can be found in your institution’s systems.</p>
+
+<p>There is a chance that we have missed highlighting a word or phrase that needs changing to be a good fit for your institution so do please read critically.</p>
+
+<p>You can change more than just the highlighted words to make the wording a good fit for your purpose.</p>
+
+<p>There is one question ‘p-personalcontact’ that definitely only applies to some institutions, we’ve marked the whole row red. Just delete it if it doesn’t apply to yours.</p>
+
+<p><strong>Do not add or delete or rearrange columns or modify column headers please.</strong><br />
+For the purposes of this project no rows should be added or deleted either unless absolutely necessary.</p>
+
+<h2 id="spreadsheet-columns-explained">Spreadsheet Columns explained</h2>
+<p>The spreadsheet has nine columns. These should not be renamed, deleted or rearranged in any way.</p>
+
+<p>The purpose of each column is explained below:</p>
+
+<h4 id="section">Section</h4>
+<p>Questions should be grouped with other similar questions. Ideally each section will have an introduction that helps the student get their bearings and helps them realise that any problems they may have are shared by others and they probably aren’t the first.</p>
+
+<p>The section name should be brief but must be text that you would be happy to see on the web-site. They will be used as a quick jump in point for a student returning to the tool for whatever reason.</p>
+<h4 id="question-code">Question Code</h4>
+<p>A short code that uniquely identifies this question.</p>
+
+<p>It will be used within the responses to specify which question is next after the student has selected a particular response. Usually the flow will be onto the next question (this is the default behaviour) but if you want to skip the next question based on a particular response then you must specify which is the next question to jump to. This is done by adding <code>GOTO:&lt;question code&gt;</code> at the end of the response text.</p>
+
+<p>The question code will never be visible on the web-site.</p>
+<h4 id="question--statement">Question / Statement</h4>
+<p>This text will be shown in a conversation bubble from the university’s avatar. It can be a statement of information or a question that elicits a response.</p>
+
+<p>You may use formatting in this content, see <a href="#content-formatting-explained">Content formatting explained</a>.</p>
+<h4 id="possible-responses">Possible Responses</h4>
+<p>These are brief responses for the student to choose between to answer the question. They must be comma separated, for example <code>yes, no, not sure</code>.</p>
+
+<p>Try to keep to a consistent voice - don’t swap between formal and informal. Do try to mix up the responses a bit, don’t always have <em>yes,no</em> or it will become a bit of a blur for the user. Think about adding a <em>not sure</em> option so that they don’t feel pressured if they aren’t confident of exactly what the question was trying to elicit.</p>
+
+<p>These responses will get displayed in the order that you enter them here and with the same capitalisation and spelling.</p>
+<h4 id="if-they-choose-response-1">If they choose response 1</h4>
+<p>This is what will happen if they choose the 1st response from the list in the <code>Possible Responses column</code> (when reading left to right). Any text here will be only be displayed if the student selected this response.</p>
+
+<p>You may use formatting in this text, see <a href="#content-formatting-explained">Content formatting explained</a>.</p>
+
+<p>The text will be displayed in another conversation bubble. If this field is left empty no additional text will be displayed and the next question in the spreadsheet will start immediately after the response is selected. If you want to direct them to a different question after selecting this response then you must tell us by adding <code>GOTO:&lt;question code&gt;</code> here. For example, if I want to direct a user who has selected the response <code>yes</code> to skip the next question I would get the <code>Question Code</code> of the next question I wanted them to see, e.g. <code>lb-studyload</code>, and add <code>GOTO:lb-studyload</code> at the end of any text in this cell.</p>
+
+<h4 id="if-they-choose-response-2-5">If they choose response 2-5</h4>
+<p>Exactly the behaviour as for <code>If they choose response 1</code>.</p>
+
+<h2 id="content-formatting-explained">Content formatting explained</h2>
+<p>Markdown can be used in the <code>Question / Statement</code> and <code>If they choose responseX</code> column content to provide simple formatting such as bold, italics and hyperlinks to other web pages. Note: <strong>The formatting will not show up in the spreadsheet, it will only be visible in the final conversation after the spreadsheet has been processed.</strong></p>
+
+<h4 id="bold">Bold</h4>
+<p>Any words you put inside double asterisks “<strong>” will be bolded. For example<br />
+<code>An **apple** and an orange</code><br />
+becomes<br />
+An **apple</strong> and an orange.</p>
+
+<h4 id="italics">Italics</h4>
+<p>Any words or letters you encase in underscores “<em>” will become italicised.<br />
+For example   <code>An apple and an _orange_</code> becomes An apple and an _orange</em>.</p>
+
+<h4 id="break-up-text-into-multiple-bubbles">Break up text into multiple bubbles</h4>
+<p>Adding <code>&amp;&amp;</code> anywhere in the content of a question or a response will cause the content following the <code>&amp;&amp;</code> to be displayed in a new conversation bubble in the online conversation. This is useful for breaking up longer blocks of text, there will be a pause before each new conversation bubble is presented, giving the student time to read the contents of the one before.</p>
+
+<h4 id="add-a-hyperlink">Add a hyperlink</h4>
+<p><code>[text to show](url that you want that text to link to)</code></p>
+
+<p>In the final conversation (once the spreadsheet has been converted) this will display some text and hyperlink it to the URL that you specify in the round brackets. If you just want the URL to show as is and be hyperlinked then just type it straight in without any other formatting. Don’t forget the http:// or https:// prefix.</p>
+
+<p>For example: <code>[Read XKCD](https://www.xkcd.com/557/)</code> <br />
+after processing becomes <br />
+<a href="https://www.xkcd.com/557/">Read XKCD</a>.</p>
+
+<h4 id="add-an-image">Add an image</h4>
+<p><code>![text to show on hover](url of the image or image filename)</code></p>
+
+<p>In the online conversation this will cause a thumbnail of the image to be displayed and when the image is clicked on it will expand to full size. The text given will show on hover and be available to screen readers and thus help people with visual impairment. The image can be one you have provided with the spreadsheet, in which case just put the filename inside the ()s OR it can be one available from another server in your institution in which case provide the full URL inside the ()s.</p>
+
+<h4 id="ask-the-user-to-type-something-in">Ask the user to type something in</h4>
+<p><code>{text}</code></p>
+
+<p>This markdown only works in the <a href="#possible-responses">Possible responses</a> column. Including <code>{text}</code> as the possible response will prompt the user to enter something using their keyboard.<br />
+For example: If the first three columns in a row of the spreadsheet are: <code>q-askname</code> | <code>What is your name?</code> | <code>{text}</code><br />
+then the user will be asked <code>What is your name?</code>, and given a space to type it.</p>
+
+<p>To use the result of this query see <a href="#use-something-the-user-typed">Use something the user typed</a>.</p>
+
+<h4 id="use-something-the-user-typed">Use something the user typed</h4>
+<p><code>{question-id}</code></p>
+
+<p>Any time after you have used a <code>{text}</code> response to get the user to type something, you can show them what they typed by putting that <em>question-id</em> into curly brackets, {}.</p>
+
+<p>For example: <code>Hi {q-askname}, did you know about the cheap beer on Fridays?</code> would become: Hi Aragorn, did you know about the cheap beer on Fridays?</p>
+
+<p>Assuming the student had entered ‘Aragorn’ as the response to the question in the <a href="#ask-the-user-to-type-something-in">Ask the user to type something in</a> example above.</p>
+
+<h4 id="skip-a-question-or-several">Skip a question or several</h4>
+<p><code>GOTO:question-code</code></p>
+
+<p>This is only available in a <code>If they choose response x</code> cell. It directs the system to show the question identified by the question-code next. Any questions in between will be skipped unless you do a complicated set of GOTOs and give yourself a big headache. Note that the question-code must be a value that exists in a cell in the <a href="#question-code">Question Code</a> column.</p>
+
+<h1 id="what-happens-next">What happens next?</h1>
+<p>After you have updated your version of the spreadsheet you need to email it to the online self-assessment tool admin at <strong>EMAIL ADDRESS HERE</strong>.<br />
+The admin will process the spreadsheet and generate the online conversation and a flowchart for the conversation.</p>
+
+</div>
+
+<!-- table of contents -->
+<script src="https://rawgit.com/gajus/contents/master/dist/browser/contents.js"></script>
+<script>
+  // make a ToC with all the headings
+  var c = gajus.Contents({
+    articles: document.querySelectorAll('h2, h3, h4, h5, h6')
+  });
+
+  // put the ToC into a open-close container
+  var toc = document.createElement('div')
+  toc.className = 'closed'
+  toc.innerHTML = '<h3 id="tocHeading" title="click to show/hide">Contents</h3><div id="tocContent"></div>'
+
+  // find the first h2 and put the ToC right before it
+  var firstHeading2 = document.querySelector('h2')
+  firstHeading2.parentNode.insertBefore(toc, firstHeading2)
+  document.getElementById('tocContent').insertBefore(c.list(), null)
+
+  // rig the heading to show/hide the ToC by switching classes
+  document.getElementById('tocHeading').addEventListener("click", function() {
+    if (toc.className === 'closed') {
+      toc.className = 'open'
+    } else {
+      toc.className = 'closed'
+    }
+  })
+</script>
+
+<!-- source highlighting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-bash.min.js"></script>
+</body>
+</html>
