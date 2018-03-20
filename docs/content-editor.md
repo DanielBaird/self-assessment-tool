@@ -53,14 +53,16 @@ Exactly the behaviour as for `If they choose response 1`.
 Markdown can be used in the `Question / Statement` and `If they choose responseX` column content to provide simple formatting such as bold, italics and hyperlinks to other web pages. Note: **The formatting will not show up in the spreadsheet, it will only be visible in the final conversation after the spreadsheet has been processed.**
 
 #### Bold
-Any words you put inside double asterisks "**" will be bolded. For example
+Any words you put inside double asterisks `**` will be bolded. For example
 `An **apple** and an orange`
 becomes
 An **apple** and an orange.
 
 #### Italics
-Any words or letters you encase in underscores "_" will become italicised.
-For example   `An apple and an _orange_` becomes An apple and an _orange_.
+Any words or letters you encase in underscores `_` will become italicised.
+For example `An apple and an _orange_`
+becomes
+An apple and an _orange_.
 
 #### Break up text into multiple bubbles
 Adding `&&` anywhere in the content of a question or a response will cause the content following the `&&` to be displayed in a new conversation bubble in the online conversation. This is useful for breaking up longer blocks of text, there will be a pause before each new conversation bubble is presented, giving the student time to read the contents of the one before.
@@ -77,13 +79,18 @@ after processing becomes
 #### Add an image
 `![text to show on hover](url of the image or image filename)`
 
-In the online conversation this will cause a thumbnail of the image to be displayed and when the image is clicked on it will expand to full size. The text given will show on hover and be available to screen readers and thus help people with visual impairment. The image can be one you have provided with the spreadsheet, in which case just put the filename inside the ()s OR it can be one available from another server in your institution in which case provide the full URL inside the ()s.
+In the online conversation this will cause a thumbnail of the image to be displayed and when the image is clicked on it will expand to full size. The text given will show on hover and be available to screen readers and thus help people with visual impairment. The image can be one you have provided with the spreadsheet, in which case just put the filename inside the `()`s OR it can be one available from another server in your institution in which case provide the full URL inside the `()`s.
 
 #### Ask the user to type something in
 `{text}`
 
 This markdown only works in the [Possible responses](#possible-responses) column. Including `{text}` as the possible response will prompt the user to enter something using their keyboard.
-For example: If the first three columns in a row of the spreadsheet are: `q-askname` | `What is your name?` | `{text}`
+For example: If a row in your spreadsheet has these column values: 
+
+| Section |Question Code | Question / Statement | Possible Responses
+|---------|--------------|----------------------|--------------------
+|         |`q-askname`   | `What is your name?` | `{text}`
+
 then the user will be asked `What is your name?`, and given a space to type it.
 
 To use the result of this query see [Use something the user typed](#use-something-the-user-typed).

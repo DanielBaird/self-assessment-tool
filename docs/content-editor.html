@@ -85,7 +85,7 @@
   }
 
   code {
-    font-size: smaller;
+    /*font-size: smaller;*/
   }
 
   p > code {
@@ -166,7 +166,7 @@ svg use.highlight {
 </head>
 <body>
 
-<div class="wrapper language-bash">
+<div class="wrapper">
 <h1 id="what-do-i-do">What do I do?</h1>
 <p>As a content editor you will start with the base question and response spreadsheet and review all of the questions and responses for suitability for your institution.</p>
 
@@ -220,14 +220,16 @@ For the purposes of this project no rows should be added or deleted either unles
 <p>Markdown can be used in the <code>Question / Statement</code> and <code>If they choose responseX</code> column content to provide simple formatting such as bold, italics and hyperlinks to other web pages. Note: <strong>The formatting will not show up in the spreadsheet, it will only be visible in the final conversation after the spreadsheet has been processed.</strong></p>
 
 <h4 id="bold">Bold</h4>
-<p>Any words you put inside double asterisks “<strong>” will be bolded. For example<br />
+<p>Any words you put inside double asterisks <code>**</code> will be bolded. For example<br />
 <code>An **apple** and an orange</code><br />
 becomes<br />
-An **apple</strong> and an orange.</p>
+An <strong>apple</strong> and an orange.</p>
 
 <h4 id="italics">Italics</h4>
-<p>Any words or letters you encase in underscores “<em>” will become italicised.<br />
-For example   <code>An apple and an _orange_</code> becomes An apple and an _orange</em>.</p>
+<p>Any words or letters you encase in underscores <code>_</code> will become italicised.<br />
+For example <code>An apple and an _orange_</code><br />
+becomes<br />
+An apple and an <em>orange</em>.</p>
 
 <h4 id="break-up-text-into-multiple-bubbles">Break up text into multiple bubbles</h4>
 <p>Adding <code>&amp;&amp;</code> anywhere in the content of a question or a response will cause the content following the <code>&amp;&amp;</code> to be displayed in a new conversation bubble in the online conversation. This is useful for breaking up longer blocks of text, there will be a pause before each new conversation bubble is presented, giving the student time to read the contents of the one before.</p>
@@ -244,14 +246,34 @@ after processing becomes <br />
 <h4 id="add-an-image">Add an image</h4>
 <p><code>![text to show on hover](url of the image or image filename)</code></p>
 
-<p>In the online conversation this will cause a thumbnail of the image to be displayed and when the image is clicked on it will expand to full size. The text given will show on hover and be available to screen readers and thus help people with visual impairment. The image can be one you have provided with the spreadsheet, in which case just put the filename inside the ()s OR it can be one available from another server in your institution in which case provide the full URL inside the ()s.</p>
+<p>In the online conversation this will cause a thumbnail of the image to be displayed and when the image is clicked on it will expand to full size. The text given will show on hover and be available to screen readers and thus help people with visual impairment. The image can be one you have provided with the spreadsheet, in which case just put the filename inside the <code>()</code>s OR it can be one available from another server in your institution in which case provide the full URL inside the <code>()</code>s.</p>
 
 <h4 id="ask-the-user-to-type-something-in">Ask the user to type something in</h4>
 <p><code>{text}</code></p>
 
 <p>This markdown only works in the <a href="#possible-responses">Possible responses</a> column. Including <code>{text}</code> as the possible response will prompt the user to enter something using their keyboard.<br />
-For example: If the first three columns in a row of the spreadsheet are: <code>q-askname</code> | <code>What is your name?</code> | <code>{text}</code><br />
-then the user will be asked <code>What is your name?</code>, and given a space to type it.</p>
+For example: If a row in your spreadsheet has these column values:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Question Code</th>
+      <th>Question / Statement</th>
+      <th>Possible Responses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td><code>q-askname</code></td>
+      <td><code>What is your name?</code></td>
+      <td><code>{text}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>then the user will be asked <code>What is your name?</code>, and given a space to type it.</p>
 
 <p>To use the result of this query see <a href="#use-something-the-user-typed">Use something the user typed</a>.</p>
 
