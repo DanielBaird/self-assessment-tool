@@ -109,62 +109,6 @@ vi /etc/nginx/conf.d/sat5psites.conf
 ```
 
 
-Tools setup
------------
-
-The `sat5p` tools can convert an Excel spreadsheet into a conversation data file, and also into a flow graph that is good for checking through the conversation without tediously clicking all the possible paths in the web chat.
-
-If you're setting up a server via this guide, you already have the source of the tools in a git repository; however, I recommend installing the "published" version of the tools to minimise messing around with Python.
-
-Make sure you have a recent version of `pip`, a Python package installer. If you want to use `sat5p` tools on Windows, it's worth getting through this, as the tools you're installing will 🤞 work properly at your command line without you having to type full paths, even if your Python installation doesn't work that way.
-
-First, check if you already have `pip`:
-
-```
-pip --version
-```
-
-If you get "command not found", here's how to install it:
-
-##### on CentOS and RedHat with EPEL repository:
-
-```
-sudo yum install -y python-pip
-sudo pip install --upgrade pip
-```
-
-##### on Ubuntu, Debian etc:
-```
-sudo apt-get install python-pip
-sudo pip install --upgrade pip
-```
-
-##### on Windows, good luck:
-```
-start https://stackoverflow.com/questions/4750806/how-do-i-install-pip-on-windows
-```
-
-Once you have `pip`, you can install the tools:
-
-```
-sudo pip install sat5ptools
-```
-
-This installs four command line tools, summarised below.  Running `<command> --help` will produce detailed instructions on options for each command.
-
-| tool           | purpose |
-|----------------|---------|
-| `sat5pconfig`  | Generates a config file with default settings, which you can edit and use to alter the bahaviour of the other tools                       |
-| `excel2qns`    | Reads conversation questions from an Excel workbook and generates the JSON file required to deliver that conversation via the web interface |
-| `excel2graph`  | Reads conversation questions from an Excel workbook and generates a DOT describing a graph of that conversion, and optionally runs GraphViz to produce an actual graph |
-| `excel2all`    | Combines the behaviour of `excel2qns` and `excel2all`, and therefore is probably the command you'll use most of the time.               |
-
-Also install [GraphViz](https://www.graphviz.org/) so you can get pretty graphs as PNGs or PDFs or whatever:
-
-```
-sudo yum install -y graphviz
-```
-
 
 
 

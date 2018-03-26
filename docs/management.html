@@ -266,6 +266,92 @@ sudo chown --recursive nginx:nginx /mnt/sites
   </tbody>
 </table>
 
+<h2 id="iframe-friendly-mode"><code>iframe</code> friendly mode</h2>
+
+<p>The ‘normal’ display for the conversational interface uses a maximum width, and includes headers and footers as described in the preceding section.  This ensures a reasonable presentation in stand-alone mode, where the user visits the subdomain directly.</p>
+
+<p>There is an alternative display mode that removes the header and footer and doesn’t enforce a minimum width; this is for display in an iframe or other wrapping arrangement.  To show the conversation in <code>iframe</code> friendly mode, add <code>?noheader</code> to the url:</p>
+
+<pre><code>https://cqu.sat5p.jcu.io/?noheader
+</code></pre>
+
+<h2 id="tools---setup">Tools - setup</h2>
+
+<p>The <code>sat5p</code> tools can convert an Excel spreadsheet into a conversation data file, and also into a flow graph that is good for checking through the conversation without tediously clicking all the possible paths in the web chat.</p>
+
+<p>If you’re setting up a server via this guide, you already have the source of the tools in a git repository; however, I recommend installing the “published” version of the tools to minimise messing around with Python.</p>
+
+<p>Make sure you have a recent version of <code>pip</code>, a Python package installer. If you want to use <code>sat5p</code> tools on Windows, it’s worth getting through this, as the tools you’re installing will 🤞 work properly at your command line without you having to type full paths, even if your Python installation doesn’t work that way.</p>
+
+<p>First, check if you already have <code>pip</code>:</p>
+
+<pre><code>pip --version
+</code></pre>
+
+<p>If you get “command not found”, here’s how to install it:</p>
+
+<h5 id="on-centos-and-redhat-with-epel-repository">on CentOS and RedHat with EPEL repository:</h5>
+
+<pre><code>sudo yum install -y python-pip
+sudo pip install --upgrade pip
+</code></pre>
+
+<h5 id="on-ubuntu-debian-etc">on Ubuntu, Debian etc:</h5>
+
+<pre><code>sudo apt-get install python-pip
+sudo pip install --upgrade pip
+</code></pre>
+
+<h5 id="on-windows-good-luck">on Windows… good luck:</h5>
+
+<pre><code>start https://stackoverflow.com/questions/4750806/how-do-i-install-pip-on-windows
+</code></pre>
+
+<p>Once you have <code>pip</code>, you can install the tools:</p>
+
+<pre><code>sudo pip install sat5ptools
+</code></pre>
+
+<h3 id="graphviz">GraphViz</h3>
+
+<p><a href="https://www.graphviz.org/">GraphViz</a> is optional, but recommended.  If it is available, sat5ptools can use it to make useful flow-charts as PNGs or PDFs (or any other format GraphViz supports):</p>
+
+<pre><code>sudo yum install -y graphviz
+</code></pre>
+
+<p>The conversation flowcharts are usually very narrow and long, so it’s worth experimenting with which format is most useful for scrolling through – some people report that Adobe Acrobat can’t always show a long conversation.</p>
+
+<h2 id="tools---using">Tools - using</h2>
+
+<p>There are four command line tools, summarised below.  Running <code>&lt;command&gt; --help</code> will produce detailed instructions on options for each command.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>tool</th>
+      <th>purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>sat5pconfig</code></td>
+      <td>Generates a config file with default settings, which you can edit and use to alter the bahaviour of the other tools</td>
+    </tr>
+    <tr>
+      <td><code>excel2qns</code></td>
+      <td>Reads conversation questions from an Excel workbook and generates the JSON file required to deliver that conversation via the web interface</td>
+    </tr>
+    <tr>
+      <td><code>excel2graph</code></td>
+      <td>Reads conversation questions from an Excel workbook and generates a DOT describing a graph of that conversion, and optionally runs GraphViz to produce an actual graph</td>
+    </tr>
+    <tr>
+      <td><code>excel2all</code></td>
+      <td>Combines the behaviour of <code>excel2qns</code> and <code>excel2all</code>, and therefore is probably the command you’ll use most of the time.</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 <!-- table of contents -->
