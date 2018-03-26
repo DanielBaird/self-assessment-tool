@@ -242,9 +242,10 @@ def conversation_to_dot(conversation, background='transparent'):
 	for qid, qn in conversation['questions'].items():
 
 		# the node itself
+		# \u2014 is an em-dash
 		# \u2015 is a "horizontal bar" character similar to an em-dash
 		# \u2500 is a horizontal box-drawing character
-		dot.append(u'\t"{}" [label="{{\\N}}|{{\u2015\u2015\u2015\\n{}\\n\u2015\u2015\u2015\\n}}",shape="record",style="filled,rounded"]'.format(qid, prep_string(qn['text'])))
+		dot.append(u'\t"{}" [label="{{\\N}}|{{\u2014\u2014\u2014\\n{}\\n\u2014\u2014\u2014\\n}}",shape="record",style="filled,rounded"]'.format(qid, prep_string(qn['text'])))
 
 		# the node's answers
 		dot.append(u'\t{ rank=same; ')

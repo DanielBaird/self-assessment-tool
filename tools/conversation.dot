@@ -7,7 +7,7 @@ digraph {
 	"::START::" -> "lb-intro"
 
 
-	"p-numeracy" [label="{\N}|{―――\nMany students are concerned about their maths skills. How\nprepared do you feel in terms of mathematics and numeracy?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-numeracy" [label="{\N}|{———\nMany students are concerned about their maths skills. How\nprepared do you feel in terms of mathematics and numeracy?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-numeracy::0" [label="yes", shape="box", style="filled"]
 		"p-numeracy::1" [label="no", shape="box", style="filled"]
@@ -21,7 +21,7 @@ digraph {
 	"p-numeracy" -> "p-numeracy::2" -> "p-numeracy::2::info" -> "p-writingassessment"
 
 
-	"p-citations" [label="{\N}|{―――\nMost of your assessment will need to be referenced in APA or\nHarvard format. Do you know where to find a guide on how to do\nthat?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-citations" [label="{\N}|{———\nMost of your assessment will need to be referenced in APA or\nHarvard format. Do you know where to find a guide on how to do\nthat?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-citations::0" [label="yes", shape="box", style="filled"]
 		"p-citations::1" [label="no", shape="box", style="filled"]
@@ -32,7 +32,7 @@ digraph {
 	"p-citations" -> "p-citations::1" -> "p-citations::1::info" -> "p-alc"
 
 
-	"uhiw-policies1" [label="{\N}|{―――\nAre you confident that you understand the policies of the uni,\ne.g. Assessment of Course Work Policy, Withdrawal without\nFinancial Penalty Policy?\n―――\n}",shape="record",style="filled,rounded"]
+	"uhiw-policies1" [label="{\N}|{———\nAre you confident that you understand the policies of the uni,\ne.g. Assessment of Course Work Policy, Withdrawal without\nFinancial Penalty Policy?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"uhiw-policies1::0" [label="yes", shape="box", style="filled"]
 		"uhiw-policies1::1" [label="no", shape="box", style="filled"]
@@ -43,7 +43,7 @@ digraph {
 	"uhiw-policies1" -> "uhiw-policies1::1" -> "uhiw-policies1::1::info" -> "uhiw-policies2"
 
 
-	"p-internet" [label="{\N}|{―――\nMany units require you to download information. Do you have a\nreliable internet service?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-internet" [label="{\N}|{———\nMany units require you to download information. Do you have a\nreliable internet service?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-internet::0" [label="yes", shape="box", style="filled"]
 		"p-internet::1" [label="no", shape="box", style="filled"]
@@ -53,7 +53,7 @@ digraph {
 	"p-internet" -> "p-internet::1" -> "p-internet::1::info" -> "p-computerskills"
 
 
-	"uhiw-policies2" [label="{\N}|{―――\nWould you like to speak to someone about the university policies\nor processes?\n―――\n}",shape="record",style="filled,rounded"]
+	"uhiw-policies2" [label="{\N}|{———\nWould you like to speak to someone about the university policies\nor processes?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"uhiw-policies2::0" [label="yes please", shape="box", style="filled"]
 		"uhiw-policies2::1" [label="no thanks", shape="box", style="filled"]
@@ -63,7 +63,7 @@ digraph {
 	"uhiw-policies2" -> "uhiw-policies2::1" -> "uhiw-prevstudy1"
 
 
-	"p-writingassessment" [label="{\N}|{―――\nMany of your assessments at university are written; for example\nessays, reports and discussion papers based on research. Is this\nan area you are confident with?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-writingassessment" [label="{\N}|{———\nMany of your assessments at university are written; for example\nessays, reports and discussion papers based on research. Is this\nan area you are confident with?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-writingassessment::0" [label="yes", shape="box", style="filled"]
 		"p-writingassessment::1" [label="umm..", shape="box", style="filled"]
@@ -74,14 +74,14 @@ digraph {
 	"p-writingassessment" -> "p-writingassessment::1" -> "p-writingassessment::1::info" -> "p-citations"
 
 
-	"sa-intro" [label="{\N}|{―――\nNearly done, this is the last section.\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-intro" [label="{\N}|{———\nNearly done, this is the last section.\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-intro::0" [label="okay", shape="box", style="filled"]
 	}
 	"sa-intro" -> "sa-intro::0" -> "sa-career advice"
 
 
-	"lb-cultural" [label="{\N}|{―――\nSometime students tell us they have cultural obligations which\nimpact on their attendance at compulsory classes such as\nresidential schools/on-campus labs and /or availability for\ncompulsory placements.\n&&\n Do you think this may be of concern to you at some stage?\n―――\n}",shape="record",style="filled,rounded"]
+	"lb-cultural" [label="{\N}|{———\nSometime students tell us they have cultural obligations which\nimpact on their attendance at compulsory classes such as\nresidential schools/on-campus labs and /or availability for\ncompulsory placements.\n&&\n Do you think this may be of concern to you at some stage?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"lb-cultural::0" [label="yes", shape="box", style="filled"]
 		"lb-cultural::1" [label="no", shape="box", style="filled"]
@@ -94,7 +94,7 @@ digraph {
 	"lb-cultural" -> "lb-cultural::2" -> "lb-cultural::2::info" -> "p-enrol"
 
 
-	"uhiw-advice" [label="{\N}|{―――\nWould you like some course advice?\n―――\n}",shape="record",style="filled,rounded"]
+	"uhiw-advice" [label="{\N}|{———\nWould you like some course advice?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"uhiw-advice::0" [label="yes", shape="box", style="filled"]
 		"uhiw-advice::1" [label="no", shape="box", style="filled"]
@@ -104,7 +104,7 @@ digraph {
 	"uhiw-advice" -> "uhiw-advice::1" -> "uhiw-monitoring"
 
 
-	"sa-counselling" [label="{\N}|{―――\nIf you need to talk to someone we have counsellors available face\nto face, by phone, or email. Want to know more?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-counselling" [label="{\N}|{———\nIf you need to talk to someone we have counsellors available face\nto face, by phone, or email. Want to know more?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-counselling::0" [label="yes", shape="box", style="filled"]
 		"sa-counselling::1" [label="no", shape="box", style="filled"]
@@ -114,7 +114,7 @@ digraph {
 	"sa-counselling" -> "sa-counselling::1" -> "theend"
 
 
-	"uhiw-prestudy2" [label="{\N}|{―――\nAre you applying (or would you like to apply) for Recognised\nPrior Learning for your previous study or work experience?\n―――\n}",shape="record",style="filled,rounded"]
+	"uhiw-prestudy2" [label="{\N}|{———\nAre you applying (or would you like to apply) for Recognised\nPrior Learning for your previous study or work experience?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"uhiw-prestudy2::0" [label="yes", shape="box", style="filled"]
 		"uhiw-prestudy2::1" [label="no", shape="box", style="filled"]
@@ -124,7 +124,7 @@ digraph {
 	"uhiw-prestudy2" -> "uhiw-prestudy2::1" -> "uhiw-advice"
 
 
-	"p-computerskills" [label="{\N}|{―――\nYou will use a range of computer skills at university such as\nemail, creating documents and presentations,searching for\ninformation and keeping records of your work. How confident are\nyou with your computer skills?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-computerskills" [label="{\N}|{———\nYou will use a range of computer skills at university such as\nemail, creating documents and presentations,searching for\ninformation and keeping records of your work. How confident are\nyou with your computer skills?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-computerskills::0" [label="Very", shape="box", style="filled"]
 		"p-computerskills::1" [label="so so", shape="box", style="filled"]
@@ -138,7 +138,7 @@ digraph {
 	"p-computerskills" -> "p-computerskills::2" -> "p-computerskills::2::info" -> "p-psiers"
 
 
-	"lb-studyarea" [label="{\N}|{―――\nDo you have a designated study area?\n―――\n}",shape="record",style="filled,rounded"]
+	"lb-studyarea" [label="{\N}|{———\nDo you have a designated study area?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"lb-studyarea::0" [label="I do", shape="box", style="filled"]
 		"lb-studyarea::1" [label="not yet", shape="box", style="filled"]
@@ -149,7 +149,7 @@ digraph {
 	"lb-studyarea" -> "lb-studyarea::1" -> "lb-studyarea::1::info" -> "lb-first"
 
 
-	"uhiw-keydates" [label="{\N}|{―――\nThere are a number of dates by which you need to have finalised\nenrolments, fees etc. They are shown in the Academic Calendar,\nare you aware of these?\n―――\n}",shape="record",style="filled,rounded"]
+	"uhiw-keydates" [label="{\N}|{———\nThere are a number of dates by which you need to have finalised\nenrolments, fees etc. They are shown in the Academic Calendar,\nare you aware of these?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"uhiw-keydates::0" [label="yes", shape="box", style="filled"]
 		"uhiw-keydates::1" [label="no", shape="box", style="filled"]
@@ -160,7 +160,7 @@ digraph {
 	"uhiw-keydates" -> "uhiw-keydates::1" -> "uhiw-keydates::1::info" -> "uhiw-policies1"
 
 
-	"lb-travel" [label="{\N}|{―――\nHow far do you live from a campus location while you're studying?\n―――\n}",shape="record",style="filled,rounded"]
+	"lb-travel" [label="{\N}|{———\nHow far do you live from a campus location while you're studying?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"lb-travel::0" [label="Greater than 30 mins", shape="box", style="filled"]
 		"lb-travel::1" [label="less than 30 mins", shape="box", style="filled"]
@@ -171,7 +171,7 @@ digraph {
 	"lb-travel" -> "lb-travel::1" -> "lb-travel::1::info" -> "lb-studyarea"
 
 
-	"p-unitprofiles" [label="{\N}|{―――\nDo you know where to find Unit Profiles? These are provided by\nthe lecturer in your subjects to provide you a guide to the\nsubject.\n―――\n}",shape="record",style="filled,rounded"]
+	"p-unitprofiles" [label="{\N}|{———\nDo you know where to find Unit Profiles? These are provided by\nthe lecturer in your subjects to provide you a guide to the\nsubject.\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-unitprofiles::0" [label="yes", shape="box", style="filled"]
 		"p-unitprofiles::1" [label="no", shape="box", style="filled"]
@@ -185,7 +185,7 @@ digraph {
 	"p-unitprofiles" -> "p-unitprofiles::2" -> "p-unitprofiles::2::info" -> "p-internet"
 
 
-	"sa-bluecard" [label="{\N}|{―――\nSome courses have requirements to get a Blue Card, immunisations,\nor a police check and these may take time to get. Have you\nchecked your units/subjects for requirments like this?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-bluecard" [label="{\N}|{———\nSome courses have requirements to get a Blue Card, immunisations,\nor a police check and these may take time to get. Have you\nchecked your units/subjects for requirments like this?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-bluecard::0" [label="yes", shape="box", style="filled"]
 		"sa-bluecard::1" [label="no", shape="box", style="filled"]
@@ -196,7 +196,7 @@ digraph {
 	"sa-bluecard" -> "sa-bluecard::1" -> "sa-bluecard::1::info" -> "sa-indigenous"
 
 
-	"sa-liaison" [label="{\N}|{―――\nYou have support from an Academic Liaison in your school. Want to\nfind out more about this?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-liaison" [label="{\N}|{———\nYou have support from an Academic Liaison in your school. Want to\nfind out more about this?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-liaison::0" [label="yep", shape="box", style="filled"]
 		"sa-liaison::1" [label="nah", shape="box", style="filled"]
@@ -206,7 +206,7 @@ digraph {
 	"sa-liaison" -> "sa-liaison::1" -> "sa-loan"
 
 
-	"lb-first" [label="{\N}|{―――\nAre you the first in your family to go to uni?\n―――\n}",shape="record",style="filled,rounded"]
+	"lb-first" [label="{\N}|{———\nAre you the first in your family to go to uni?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"lb-first::0" [label="yes", shape="box", style="filled"]
 		"lb-first::1" [label="no", shape="box", style="filled"]
@@ -217,7 +217,7 @@ digraph {
 	"lb-first" -> "lb-first::1" -> "lb-first::1::info" -> "lb-home"
 
 
-	"p-alc" [label="{\N}|{―――\nDid you know there is an Academic Learning Centre here to help\nyou?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-alc" [label="{\N}|{———\nDid you know there is an Academic Learning Centre here to help\nyou?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-alc::0" [label="yes", shape="box", style="filled"]
 		"p-alc::1" [label="no", shape="box", style="filled"]
@@ -228,7 +228,7 @@ digraph {
 	"p-alc" -> "p-alc::1" -> "p-alc::1::info" -> "p-placements1"
 
 
-	"sa-forms" [label="{\N}|{―――\nHave your completed all your forms? HECS, SAF?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-forms" [label="{\N}|{———\nHave your completed all your forms? HECS, SAF?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-forms::0" [label="yes", shape="box", style="filled"]
 		"sa-forms::1" [label="no", shape="box", style="filled"]
@@ -238,7 +238,7 @@ digraph {
 	"sa-forms" -> "sa-forms::1" -> "sa-forms::1::info" -> "sa-orientation"
 
 
-	"sa-orientation" [label="{\N}|{―――\nHave you attended orientation or Orientation Online?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-orientation" [label="{\N}|{———\nHave you attended orientation or Orientation Online?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-orientation::0" [label="yes", shape="box", style="filled"]
 		"sa-orientation::1" [label="no", shape="box", style="filled"]
@@ -249,7 +249,7 @@ digraph {
 	"sa-orientation" -> "sa-orientation::1" -> "sa-orientation::1::info" -> "sa-card"
 
 
-	"p-psiers" [label="{\N}|{―――\nHave your been contacted by your PSIERS staff member?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-psiers" [label="{\N}|{———\nHave your been contacted by your PSIERS staff member?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-psiers::0" [label="yes", shape="box", style="filled"]
 		"p-psiers::1" [label="no", shape="box", style="filled"]
@@ -262,7 +262,7 @@ digraph {
 	"p-psiers" -> "p-psiers::2" -> "p-psiers::2::info" -> "uhiw-keydates"
 
 
-	"sa-card" [label="{\N}|{―――\nHave you applied for your student card? You will need it for\nexams. You can also get discounts at many businesses and for\ntravel as a student.\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-card" [label="{\N}|{———\nHave you applied for your student card? You will need it for\nexams. You can also get discounts at many businesses and for\ntravel as a student.\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-card::0" [label="done", shape="box", style="filled"]
 		"sa-card::1" [label="not yet", shape="box", style="filled"]
@@ -273,7 +273,7 @@ digraph {
 	"sa-card" -> "sa-card::1" -> "sa-card::1::info" -> "sa-tutor"
 
 
-	"sa-studentportal" [label="{\N}|{―――\nAre you comfortable using the Student Portal, name here?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-studentportal" [label="{\N}|{———\nAre you comfortable using the Student Portal, name here?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-studentportal::0" [label="yes", shape="box", style="filled"]
 		"sa-studentportal::1" [label="no", shape="box", style="filled"]
@@ -286,7 +286,7 @@ digraph {
 	"sa-studentportal" -> "sa-studentportal::2" -> "sa-email"
 
 
-	"lb-finances" [label="{\N}|{―――\nLots of students worry about finances during their studies. Are\nfinances a concern for you?\n―――\n}",shape="record",style="filled,rounded"]
+	"lb-finances" [label="{\N}|{———\nLots of students worry about finances during their studies. Are\nfinances a concern for you?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"lb-finances::0" [label="yes", shape="box", style="filled"]
 		"lb-finances::1" [label="no", shape="box", style="filled"]
@@ -296,7 +296,7 @@ digraph {
 	"lb-finances" -> "lb-finances::1" -> "lb-cultural"
 
 
-	"lb-studyload" [label="{\N}|{―――\nHi \{lb-intro\}. Our conversation today will look like this:\n![conversation flow diagram](conversation.dot.png) (It's a very\ntall diagram, click it to see it more clearly.)\n&&\nHow many [subjects/courses](https://en.wikipedia.org/wiki/Course_\n(education)) are you enrolled in this semester?\n―――\n}",shape="record",style="filled,rounded"]
+	"lb-studyload" [label="{\N}|{———\nHi \{lb-intro\}. Our conversation today will look like this:\n![conversation flow diagram](conversation.dot.png) (It's a very\ntall diagram, click it to see it more clearly.)\n&&\nHow many [subjects/courses](https://en.wikipedia.org/wiki/Course_\n(education)) are you enrolled in this semester?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"lb-studyload::0" [label="1 or 2", shape="box", style="filled"]
 		"lb-studyload::1" [label="3 or more", shape="box", style="filled"]
@@ -306,7 +306,7 @@ digraph {
 	"lb-studyload" -> "lb-studyload::1" -> "lb-studyload::1::info" -> "lb-travel"
 
 
-	"p-placements2" [label="{\N}|{―――\nDo you know where to find out about them?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-placements2" [label="{\N}|{———\nDo you know where to find out about them?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-placements2::0" [label="yes", shape="box", style="filled"]
 		"p-placements2::1" [label="no", shape="box", style="filled"]
@@ -316,7 +316,7 @@ digraph {
 	"p-placements2" -> "p-placements2::1" -> "p-placements2::1::info" -> "p-placements3"
 
 
-	"p-placements3" [label="{\N}|{―――\nHave you considered that you may need to travel for a residential\nschool or to do a placement/practicum?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-placements3" [label="{\N}|{———\nHave you considered that you may need to travel for a residential\nschool or to do a placement/practicum?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-placements3::0" [label="yes", shape="box", style="filled"]
 		"p-placements3::1" [label="no", shape="box", style="filled"]
@@ -327,7 +327,7 @@ digraph {
 	"p-placements3" -> "p-placements3::1" -> "p-placements3::1::info" -> "p-unitprofiles"
 
 
-	"p-placements1" [label="{\N}|{―――\nDoes your course have Residential Schools, Placements, or\nPracticums?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-placements1" [label="{\N}|{———\nDoes your course have Residential Schools, Placements, or\nPracticums?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-placements1::0" [label="yes", shape="box", style="filled"]
 		"p-placements1::1" [label="no", shape="box", style="filled"]
@@ -339,7 +339,7 @@ digraph {
 	"p-placements1" -> "p-placements1::2" -> "p-placements2"
 
 
-	"p-comms" [label="{\N}|{―――\nIn your studies you will be expected to produce written work and\ncomplate oral presentations. How confident do you feel with\nthese?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-comms" [label="{\N}|{———\nIn your studies you will be expected to produce written work and\ncomplate oral presentations. How confident do you feel with\nthese?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-comms::0" [label="very", shape="box", style="filled"]
 		"p-comms::1" [label="so so", shape="box", style="filled"]
@@ -353,7 +353,7 @@ digraph {
 	"p-comms" -> "p-comms::2" -> "p-comms::2::info" -> "p-numeracy"
 
 
-	"sa-scholarships" [label="{\N}|{―――\nDid you know we offer many scholarships?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-scholarships" [label="{\N}|{———\nDid you know we offer many scholarships?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-scholarships::0" [label="yes", shape="box", style="filled"]
 		"sa-scholarships::1" [label="no", shape="box", style="filled"]
@@ -364,7 +364,7 @@ digraph {
 	"sa-scholarships" -> "sa-scholarships::1" -> "sa-scholarships::1::info" -> "sa-disability"
 
 
-	"sa-career advice" [label="{\N}|{―――\nWould you benefit from some career advice?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-career advice" [label="{\N}|{———\nWould you benefit from some career advice?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-career advice::0" [label="yes please", shape="box", style="filled"]
 		"sa-career advice::1" [label="no thanks", shape="box", style="filled"]
@@ -374,7 +374,7 @@ digraph {
 	"sa-career advice" -> "sa-career advice::1" -> "sa-scholarships"
 
 
-	"lb-home" [label="{\N}|{―――\nDo you have support at home?\n―――\n}",shape="record",style="filled,rounded"]
+	"lb-home" [label="{\N}|{———\nDo you have support at home?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"lb-home::0" [label="yes", shape="box", style="filled"]
 		"lb-home::1" [label="no", shape="box", style="filled"]
@@ -385,7 +385,7 @@ digraph {
 	"lb-home" -> "lb-home::1" -> "lb-home::1::info" -> "lb-responsibilities"
 
 
-	"sa-indigenous" [label="{\N}|{―――\nWe offer support for indigenous students. Want to know more?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-indigenous" [label="{\N}|{———\nWe offer support for indigenous students. Want to know more?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-indigenous::0" [label="yes", shape="box", style="filled"]
 		"sa-indigenous::1" [label="no", shape="box", style="filled"]
@@ -395,14 +395,14 @@ digraph {
 	"sa-indigenous" -> "sa-indigenous::1" -> "sa-forms"
 
 
-	"lb-intro" [label="{\N}|{―――\nSometimes students who commence the program tell us they find it\ndifficult to achieve a _study/work/family/life_ balance.\n&&\nThis may include balancing **full-time study** with **full-** or\n**part-time paid work**, as well as with _caring_\nresponsibilities.\n&&\nIs [study/life balance](https://onetwentyseven.blog/2017/11/29\n/choose-two/) a concern for you? Let's work through some\nexamples, but first: what's your name?\n―――\n}",shape="record",style="filled,rounded"]
+	"lb-intro" [label="{\N}|{———\nSometimes students who commence the program tell us they find it\ndifficult to achieve a _study/work/family/life_ balance.\n&&\nThis may include balancing **full-time study** with **full-** or\n**part-time paid work**, as well as with _caring_\nresponsibilities.\n&&\nIs [study/life balance](https://onetwentyseven.blog/2017/11/29\n/choose-two/) a concern for you? Let's work through some\nexamples, but first: what's your name?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 	}
 		"lb-intro::collect" [label="user enters: \{lb-intro\}", shape="parallelogram", style="filled"]
 		"lb-intro" -> "lb-intro::collect" -> "lb-studyload"
 
 
-	"sa-email" [label="{\N}|{―――\nDo you want to know how to link your student email and personal\nemail?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-email" [label="{\N}|{———\nDo you want to know how to link your student email and personal\nemail?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-email::0" [label="that would be great", shape="box", style="filled"]
 		"sa-email::1" [label="no thanks", shape="box", style="filled"]
@@ -412,7 +412,7 @@ digraph {
 	"sa-email" -> "sa-email::1" -> "sa-liaison"
 
 
-	"p-requirements" [label="{\N}|{―――\nInherent requirements are the fundamental abilities, attributes,\nskills and behaviours necessary to complete the learning outcomes\nof a course. Do you think you understand all the inherent\nrequirements for your course?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-requirements" [label="{\N}|{———\nInherent requirements are the fundamental abilities, attributes,\nskills and behaviours necessary to complete the learning outcomes\nof a course. Do you think you understand all the inherent\nrequirements for your course?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-requirements::0" [label="yes", shape="box", style="filled"]
 		"p-requirements::1" [label="no", shape="box", style="filled"]
@@ -426,7 +426,7 @@ digraph {
 	"p-requirements" -> "p-requirements::2" -> "p-requirements::2::info" -> "p-comms"
 
 
-	"sa-textbooks" [label="{\N}|{―――\nHave you found out what textbooks you need and where to buy them?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-textbooks" [label="{\N}|{———\nHave you found out what textbooks you need and where to buy them?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-textbooks::0" [label="yes", shape="box", style="filled"]
 		"sa-textbooks::1" [label="no", shape="box", style="filled"]
@@ -436,7 +436,7 @@ digraph {
 	"sa-textbooks" -> "sa-textbooks::1" -> "sa-textbooks::1::info" -> "sa-counselling"
 
 
-	"uhiw-monitoring" [label="{\N}|{―――\nAre you aware that the university monitors your academic\nprogress. This is important because if you do happen to fail 50%\nof your units or the same unit twice you will be contacted by the\nuniversity checking to see if everything is okay.\n―――\n}",shape="record",style="filled,rounded"]
+	"uhiw-monitoring" [label="{\N}|{———\nAre you aware that the university monitors your academic\nprogress. This is important because if you do happen to fail 50%\nof your units or the same unit twice you will be contacted by the\nuniversity checking to see if everything is okay.\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"uhiw-monitoring::0" [label="yes", shape="box", style="filled"]
 		"uhiw-monitoring::1" [label="no", shape="box", style="filled"]
@@ -447,7 +447,7 @@ digraph {
 	"uhiw-monitoring" -> "uhiw-monitoring::1" -> "uhiw-monitoring::1::info" -> "sa-intro"
 
 
-	"p-enrol" [label="{\N}|{―――\nDid you enrol on time?\n―――\n}",shape="record",style="filled,rounded"]
+	"p-enrol" [label="{\N}|{———\nDid you enrol on time?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"p-enrol::0" [label="yes", shape="box", style="filled"]
 		"p-enrol::1" [label="no", shape="box", style="filled"]
@@ -457,7 +457,7 @@ digraph {
 	"p-enrol" -> "p-enrol::1" -> "p-enrol::1::info" -> "p-requirements"
 
 
-	"sa-disability" [label="{\N}|{―――\nAre you aware that disability support is available to you, even\nif your disability is only for a short while?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-disability" [label="{\N}|{———\nAre you aware that disability support is available to you, even\nif your disability is only for a short while?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-disability::0" [label="yes", shape="box", style="filled"]
 		"sa-disability::1" [label="no", shape="box", style="filled"]
@@ -468,7 +468,7 @@ digraph {
 	"sa-disability" -> "sa-disability::1" -> "sa-disability::1::info" -> "sa-studentportal"
 
 
-	"uhiw-prevstudy1" [label="{\N}|{―――\nHave you studied  at university previously?\n―――\n}",shape="record",style="filled,rounded"]
+	"uhiw-prevstudy1" [label="{\N}|{———\nHave you studied  at university previously?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"uhiw-prevstudy1::0" [label="yes", shape="box", style="filled"]
 		"uhiw-prevstudy1::1" [label="no", shape="box", style="filled"]
@@ -479,7 +479,7 @@ digraph {
 	"uhiw-prevstudy1" -> "uhiw-prevstudy1::1" -> "uhiw-prevstudy1::1::info" -> "uhiw-advice"
 
 
-	"lb-responsibilities" [label="{\N}|{―――\nDo you have family responsibilities?\n―――\n}",shape="record",style="filled,rounded"]
+	"lb-responsibilities" [label="{\N}|{———\nDo you have family responsibilities?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"lb-responsibilities::0" [label="yes", shape="box", style="filled"]
 		"lb-responsibilities::1" [label="no", shape="box", style="filled"]
@@ -489,7 +489,7 @@ digraph {
 	"lb-responsibilities" -> "lb-responsibilities::1" -> "lb-finances"
 
 
-	"theend" [label="{\N}|{―――\nThanks, come back anytime! Got any feedback?\n―――\n}",shape="record",style="filled,rounded"]
+	"theend" [label="{\N}|{———\nThanks, come back anytime! Got any feedback?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"theend::0" [label="yes", shape="box", style="filled"]
 		"theend::1" [label="no", shape="box", style="filled"]
@@ -500,7 +500,7 @@ digraph {
 	"theend" -> "theend::1" -> "theend::1::info" -> "::END::"
 
 
-	"sa-tutor" [label="{\N}|{―――\nYou can also accessing tutoring online. Want to know more?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-tutor" [label="{\N}|{———\nYou can also accessing tutoring online. Want to know more?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-tutor::0" [label="yes", shape="box", style="filled"]
 		"sa-tutor::1" [label="no", shape="box", style="filled"]
@@ -510,7 +510,7 @@ digraph {
 	"sa-tutor" -> "sa-tutor::1" -> "sa-mentor"
 
 
-	"sa-loan" [label="{\N}|{―――\nAre you interested in a student loan?\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-loan" [label="{\N}|{———\nAre you interested in a student loan?\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-loan::0" [label="yes", shape="box", style="filled"]
 		"sa-loan::1" [label="no", shape="box", style="filled"]
@@ -519,7 +519,7 @@ digraph {
 	"sa-loan" -> "sa-loan::1" -> "sa-bluecard"
 
 
-	"sa-mentor" [label="{\N}|{―――\nWould you like info on the Mentor programme? This is where you\nare linked up with a fellow student that often has already\ncompleted the unit you are studying and are able to provide you\nwith some guidance.\n―――\n}",shape="record",style="filled,rounded"]
+	"sa-mentor" [label="{\N}|{———\nWould you like info on the Mentor programme? This is where you\nare linked up with a fellow student that often has already\ncompleted the unit you are studying and are able to provide you\nwith some guidance.\n———\n}",shape="record",style="filled,rounded"]
 	{ rank=same; 
 		"sa-mentor::0" [label="that would be terrific", shape="box", style="filled"]
 		"sa-mentor::1" [label="I'm OK thanks", shape="box", style="filled"]
