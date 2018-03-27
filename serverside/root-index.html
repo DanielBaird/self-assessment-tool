@@ -20,49 +20,107 @@
 	}
 	/* use absolute layout + JS for positioning, because IE */
 	body {
+		color: #444;
+		line-height: 1.4;
 		height: 100%;
 		height: 100vh;
 		position: relative;
+		padding: 0;
+		margin: 0;
 	}
-	#formholder {
+	#header {
+		height: 80px;
+	}
+	#content {
+		font-size: larger;
+		padding: 1em 2em; 
+		background-color: white;
 		position: absolute;
 		min-height: 1rem;
-		top: 0;
+		top: 80px; /* height of header */
+		bottom: 30px; /* height of footer */
 		left: 0;
 		right: 0;
+		overflow: auto;
 	}
 	#footer {
+		height: 30px;
 		position: absolute;
 		left: 0;
 		right: 0;
 		bottom: 0;
 	}
-	#header, #formholder, #footer {
-		/* max-width: 40rem; */ /* this gets set dynamically */
+	#header, #content, #footer {
+		max-width: 40rem;
 		margin: 0 auto;
 	}
-	body, p {
-		text-align: center;
-		padding: 0;
-		margin: 0;
+	.links { text-align: center }
+	a { text-decoration: none }
+	a:hover { text-decoration: underline }
+	a.test {
+		position: relative;
+		top: -0.5em;
+		opacity: 0.5;
+		font-size: 66%;
 	}
-	body > p > a {
-		display: inline-block;
-		font-size: 2vh;
-		line-height: 4vh;
-		height: 4vh;
-		padding: 0 1em;
-		background-color: #fff;
-		border-radius: 1em;
-		margin: 1vh 0;
+	.fineprint {
+		opacity: 0.66;
+		padding-top: 3em;
+		font-size: smaller;
 	}
+
 	</style>
 </head>
 <body>
 
-<div id="header"></div>
+<div id="header">
+	<div style="text-align: left; padding: 0.66rem 1rem; background-color: #057; height: 80px; color: white">
+		<br>
+		<b style="padding-top: 20px; opacity: 0.66">UniPrep</b><br>
+		<b>University Preparedness Self Assessment Tool</b>
+	</div>
+</div>
+<div id="content">
 
-<div id="footer"></div>
+	<p>
+		This tool can assist students beginning their University journey.
+	</p><p>
+		The tool is customised by your institution; find your University from the list below to use the version of the tool that's right for you.
+	</p>
+	<div class="links">
+		<p>
+			<a href="https://csu.uniprep.net.au">Charles Sturt University</a><br>
+			<a class="test" href="https://csu-test.uniprep.net.au">(test site)</a>
+		</p><p>
+			<a href="https://cqu.uniprep.net.au">Central Queensland University</a><br>
+			<a class="test" href="https://cqu-test.uniprep.net.au">(test site)</a>
+		</p><p>
+			<a href="https://federation.uniprep.net.au">Federation University</a><br>
+			<a class="test" href="https://federation-test.uniprep.net.au">(test site)</a>
+		</p><p>
+			<a href="https://jcu.uniprep.net.au">James Cook University</a><br>
+			<a class="test" href="https://jcu-test.uniprep.net.au">(test site)</a>
+		</p><p>
+			<a href="https://usc.uniprep.net.au">University of the Sunshine Coast</a><br>
+			<a class="test" href="https://usc-test.uniprep.net.au">(test site)</a>
+		</p>
+	</div>
+
+	<div class="fineprint">
+		<p>
+			The UniPrep Self Assessment Tool was created as part of the "Improving the transition and retention of regional students from low−socioeconomic backgrounds: A '5Ps' approach" project.
+		</p><p>
+			Contact Denise Wood from CQUniversity for further information: <span style="white-space: nowrap">d.wood (at) cqu.edu.au</span>
+		</p>
+	</div>
+
+</div>
+<div id="footer">
+	<div style="text-align: center; font-size: smaller; opacity: 0.5; padding: 0.25rem; background-color: #057; color: white">
+		<a style="float: right; color: rgba(255,255,255,0.25)" title="created by the eResearch Centre at James Cook University" href="https://www.jcu.edu.au/eresearch">♡</a>
+		copyright 2018
+	</div>
+</div>
 
 </body>
 </html>
