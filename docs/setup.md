@@ -95,7 +95,16 @@ Install `certbot` for Nginx, and run it to generate a certificate
 
 ```
 yum install -y certbot-nginx
+
+## for sat5p.jcu.io domain..
 certbot certonly --webroot --webroot-path /usr/share/nginx/html/letsencrypt --domains sat5p.jcu.io,jcu.sat5p.jcu.io,jcu-test.sat5p.jcu.io,cqu.sat5p.jcu.io,cqu-test.sat5p.jcu.io,federation.sat5p.jcu.io,federation-test.sat5p.jcu.io,usc.sat5p.jcu.io,usc-test.sat5p.jcu.io,csu.sat5p.jcu.io,csu-test.sat5p.jcu.io
+
+## for sat5p.jcu.io domain AND uniprep.net.au domain..
+certbot certonly --webroot --webroot-path /usr/share/nginx/html/letsencrypt --domains sat5p.jcu.io,jcu.sat5p.jcu.io,jcu-test.sat5p.jcu.io,cqu.sat5p.jcu.io,cqu-test.sat5p.jcu.io,federation.sat5p.jcu.io,federation-test.sat5p.jcu.io,usc.sat5p.jcu.io,usc-test.sat5p.jcu.io,csu.sat5p.jcu.io,csu-test.sat5p.jcu.io,uniprep.net.au,jcu.uniprep.net.au,jcu-test.uniprep.net.au,cqu.uniprep.net.au,cqu-test.uniprep.net.au,federation.uniprep.net.au,federation-test.uniprep.net.au,usc.uniprep.net.au,usc-test.uniprep.net.au,csu.uniprep.net.au,csu-test.uniprep.net.au
+
+## for uniprep.net.au domain..
+certbot certonly --webroot --webroot-path /usr/share/nginx/html/letsencrypt --domains uniprep.net.au,jcu.uniprep.net.au,jcu-test.uniprep.net.au,cqu.uniprep.net.au,cqu-test.uniprep.net.au,federation.uniprep.net.au,federation-test.uniprep.net.au,usc.uniprep.net.au,usc-test.uniprep.net.au,csu.uniprep.net.au,csu-test.uniprep.net.au
+
 ##
 ## enter your email for alerts, agree to Let's Encrypt conditions, etc
 ##
